@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laguna Experience · Cabañas</title>
+<style>
+  :root{
+    --ink:#182823;
+    --ink-soft:#4b5f57;
+    --sand:#f3ead6;
+    --sand-deep:#e7d9b8;
+    --paper:#fffdf8;
+    --lagoon:#0e6b5c;
+    --lagoon-deep:#0a4c42;
+    --lagoon-light:#e4f2ee;
+    --coral:#d9633b;
+    --coral-light:#fbe6dc;
+    --gold:#c9971f;
+    --line:#e2d9c4;
+    --radius:14px;
+    --shadow:0 6px 20px rgba(20,40,35,.08);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  header{
+    background:linear-gradient(120deg,var(--lagoon-deep),var(--lagoon) 70%);
+    color:#fff;
+    padding:26px 32px 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute; right:-40px; bottom:-60px;
+    width:220px;height:220px;border-radius:50%;
+    background:rgba(255,255,255,.06);
+  }
+  .eyebrow{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    opacity:.8; margin:0 0 6px;
+  }
+  h1{
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:600; font-size:32px; margin:0;
+  }
+  .sub{opacity:.85; font-size:14.5px; margin-top:6px; max-width:560px;}
+  .wrap{
+    max-width:1100px; margin:40px auto 60px; padding:0 24px;
+  }
+  nav.tabs{
+    display:flex; gap:8px; background:var(--paper);
+    border-radius:999px; padding:6px; box-shadow:var(--shadow);
+    margin-bottom:24px; flex-wrap:wrap;
+  }
+  nav.tabs button{
+    border:none; background:transparent; padding:10px 18px;
+    border-radius:999px; font-size:14px; font-weight:600;
+    color:var(--ink-soft); cursor:pointer; transition:.15s;
+  }
+  nav.tabs button.active{background:var(--lagoon); color:#fff;}
+  nav.tabs button:hover:not(.active){background:var(--lagoon-light);}
+  section.panel{display:none;}
+  section.panel.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
+  .card{
+    background:var(--paper); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:22px 24px; margin-bottom:18px;
+    border:1px solid var(--line);
+  }
+  .card h2{margin:0 0 4px; font-family:Georgia,serif; font-size:20px;}
+  .card p.hint{margin:0 0 16px; color:var(--ink-soft); font-size:13.5px;}
+  .grid-cabins{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:14px;
+  }
+  .cabin{
+    border:1px solid var(--line); border-radius:12px; padding:16px;
+    background:#fff; position:relative;
+  }
+  .cabin h3{margin:0 0 4px; font-size:16px;}
+  .cabin .meta{font-size:12.5px; color:var(--ink-soft); margin-bottom:10px;}
+  .badge{
+    display:inline-block; font-size:11px; font-weight:700;
+    padding:4px 10px; border-radius:999px; letter-spacing:.03em;
+    text-transform:uppercase;
+  }
+  .b-disponible{background:#dff3e6; color:#1c7a45;}
+  .b-reservada{background:#fdf1d6; color:#96700c;}
+  .b-ocupada{background:var(--coral-light); color:var(--coral);}
+  .b-mantenimiento{background:#e7e3ea; color:#5b5468;}
+  label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-soft); margin:12px 0 4px;}
+  select, input{
+    width:100%; padding:9px 11px; border-radius:8px; border:1px solid var(--line);
+    font-size:14px; font-family:inherit; background:#fff;
+  }
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .row3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
+  button.action{
+    margin-top:16px; background:var(--lagoon); color:#fff; border:none;
+    padding:11px 20px; border-radius:9px; font-size:14px; font-weight:700;
+    cursor:pointer; transition:.15s;
+  }
+  button.action:hover{background:var(--lagoon-deep);}
+  button.action.ghost{background:transparent; border:1.5px solid var(--lagoon); color:var(--lagoon);}
+  button.action.ghost:hover{background:var(--lagoon-light);}
+  button.action.danger{background:var(--coral);}
+  button.action.danger:hover{background:#b74d2c;}
+  button.action:disabled{background:#c9c4b6; cursor:not-allowed;}
+  .msg{
+    padding:11px 14px; border-radius:9px; font-size:13.5px; margin-top:14px;
+    display:none;
+  }
+  .msg.show{display:block;}
+  .msg.ok{background:#dff3e6; color:#1c7a45;}
+  .msg.err{background:var(--coral-light); color:#a8391c;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line);}
+  th{color:var(--ink-soft); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em;}
+  .pill-band{
+    display:inline-flex; align-items:center; gap:6px; background:var(--lagoon-light);
+    color:var(--lagoon-deep); padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700;
+  }
+  .pill-band .dot{width:7px;height:7px;border-radius:50%; background:var(--lagoon);}
+  .empty{color:var(--ink-soft); font-size:13.5px; font-style:italic;}
+  .stat-line{display:flex; gap:22px; flex-wrap:wrap; margin-top:4px;}
+  .stat{font-size:13px; color:var(--ink-soft);}
+  .stat b{color:var(--ink); font-size:16px; display:block;}
+  footer{text-align:center; color:var(--ink-soft); font-size:12px; padding:30px 0 10px;}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Laguna Experience · Sistema interno</p>
+  <h1>Gestión de Cabañas</h1>
+  <p class="sub">Disponibilidad, reservas, check-in / check-out y control de acceso por pulsera.</p>
+</header>
+
+<div class="wrap">
+  <nav class="tabs">
+    <button data-tab="listado" class="active">Listado</button>
+    <button data-tab="reservar">Nueva reserva</button>
+    <button data-tab="estadia">Check-in / Check-out</button>
+    <button data-tab="reservas">Reservas</button>
+  </nav>
+
+  <!-- LISTADO -->
+  <section class="panel active" id="tab-listado">
+    <div class="card">
+      <h2>Cabañas del complejo</h2>
+      <p class="hint">Estado actualizado en tiempo real según reservas, check-ins y mantenimiento.</p>
+      <div class="grid-cabins" id="cabinGrid"></div>
+    </div>
+  </section>
+
+  <!-- RESERVAR -->
+  <section class="panel" id="tab-reservar">
+    <div class="card">
+      <h2>Nueva reserva</h2>
+      <p class="hint">Se validan disponibilidad, capacidad, mantenimiento y superposición de fechas.</p>
+      <label>Cabaña</label>
+      <select id="rCabin"></select>
+      <div class="row2">
+        <div>
+          <label>Visitante (nombre)</label>
+          <input id="rVisitante" placeholder="Nombre y apellido">
+        </div>
+        <div>
+          <label>Cantidad de huéspedes</label>
+          <input id="rHuespedes" type="number" min="1" value="2">
+        </div>
+      </div>
+      <div class="row2">
+        <div>
+          <label>Fecha de entrada</label>
+          <input id="rEntrada" type="date">
+        </div>
+        <div>
+          <label>Fecha de salida</label>
+          <input id="rSalida" type="date">
+        </div>
+      </div>
+      <button class="action" onclick="crearReserva()">Verificar y reservar</button>
+      <button class="action ghost" onclick="pagarUltimaReserva()" id="btnPagar" disabled>Registrar pago</button>
+      <div class="msg" id="msgReserva"></div>
+    </div>
+  </section>
+
+  <!-- ESTADIA -->
+  <section class="panel" id="tab-estadia">
+    <div class="card">
+      <h2>Check-in</h2>
+      <p class="hint">Requiere una reserva confirmada (y pagada) para asignar pulsera y habilitar el acceso.</p>
+      <label>Reserva confirmada</label>
+      <select id="ciReserva"></select>
+      <button class="action" onclick="hacerCheckin()">Realizar check-in</button>
+      <div class="msg" id="msgCheckin"></div>
+    </div>
+
+    <div class="card">
+      <h2>Registrar consumo</h2>
+      <p class="hint">Solo disponible para huéspedes con check-in activo.</p>
+      <label>Reserva en estadía</label>
+      <select id="coReservaConsumo"></select>
+      <div class="row2">
+        <div>
+          <label>Descripción</label>
+          <input id="coDesc" placeholder="Ej: Almuerzo, minibar...">
+        </div>
+        <div>
+          <label>Monto ($)</label>
+          <input id="coMonto" type="number" min="0" value="0">
+        </div>
+      </div>
+      <button class="action ghost" onclick="registrarConsumo()">Agregar consumo</button>
+      <div class="msg" id="msgConsumo"></div>
+    </div>
+
+    <div class="card">
+      <h2>Check-out</h2>
+      <p class="hint">Deshabilita el acceso de la pulsera y calcula el saldo final de la estadía.</p>
+      <label>Reserva en estadía</label>
+      <select id="coReserva"></select>
+      <button class="action danger" onclick="hacerCheckout()">Realizar check-out</button>
+      <div class="msg" id="msgCheckout"></div>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section class="panel" id="tab-reservas">
+    <div class="card">
+      <h2>Todas las reservas</h2>
+      <table id="tablaReservas">
+        <thead><tr>
+          <th>Cabaña</th><th>Visitante</th><th>Fechas</th><th>Huéspedes</th>
+          <th>Estado</th><th>Pago</th><th>Pulsera</th><th>Acceso</th><th>Consumos</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer>Laguna Experience — Módulo Cabañas · Datos simulados en memoria</footer>
+
+<script>
+/* ======================= DATOS SIMULADOS ======================= */
+let cabanas = [
+  {id:1, nombre:"Cabaña Ceibo", capacidad:2, precio:38000, mantenimiento:false},
+  {id:2, nombre:"Cabaña Timbó", capacidad:4, precio:52000, mantenimiento:false},
+  {id:3, nombre:"Cabaña Sauce", capacidad:6, precio:71000, mantenimiento:false},
+  {id:4, nombre:"Cabaña Yatay", capacidad:3, precio:45000, mantenimiento:true},
+  {id:5, nombre:"Cabaña Curupí", capacidad:5, precio:63000, mantenimiento:false},
+];
+
+let reservas = []; // {id, cabinId, visitante, huespedes, entrada, salida, estado, pago, pulsera, acceso, consumos:[]}
+let nextReservaId = 1;
+let ultimaReservaId = null;
+
+/* ======================= UTILIDADES ======================= */
+function fmt(n){ return "$" + Number(n).toLocaleString("es-AR"); }
+function noches(entrada, salida){
+  const d1 = new Date(entrada), d2 = new Date(salida);
+  return Math.round((d2 - d1) / 86400000);
+}
+function overlap(aStart, aEnd, bStart, bEnd){
+  return (new Date(aStart) < new Date(bEnd)) && (new Date(bStart) < new Date(aEnd));
+}
+function reservaActivaOFutura(r){
+  return r.estado !== "checkout";
+}
+function estadoCabana(cabinId){
+  const cab = cabanas.find(c=>c.id===cabinId);
+  if(cab.mantenimiento) return "mantenimiento";
+  const rs = reservas.filter(r=>r.cabinId===cabinId && reservaActivaOFutura(r));
+  if(rs.some(r=>r.estado==="checkin")) return "ocupada";
+  if(rs.some(r=>r.estado==="confirmada")) return "reservada";
+  return "disponible";
+}
+
+/* ======================= RENDER: LISTADO ======================= */
+function renderCabinGrid(){
+  const grid = document.getElementById("cabinGrid");
+  grid.innerHTML = "";
+  cabanas.forEach(c=>{
+    const estado = estadoCabana(c.id);
+    const div = document.createElement("div");
+    div.className = "cabin";
+    div.innerHTML = `
+      <span class="badge b-${estado}">${estado}</span>
+      <h3 style="margin-top:10px">${c.nombre}</h3>
+      <div class="meta">Capacidad: ${c.capacidad} huéspedes · ${fmt(c.precio)}/noche</div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function renderSelectCabanas(){
+  const sel = document.getElementById("rCabin");
+  sel.innerHTML = cabanas.map(c=>`<option value="${c.id}">${c.nombre} (cap. ${c.capacidad})</option>`).join("");
+}
+
+/* ======================= RESERVAR ======================= */
+function crearReserva(){
+  const msg = document.getElementById("msgReserva");
+  msg.className = "msg";
+  const cabinId = Number(document.getElementById("rCabin").value);
+  const visitante = document.getElementById("rVisitante").value.trim();
+  const huespedes = Number(document.getElementById("rHuespedes").value);
+  const entrada = document.getElementById("rEntrada").value;
+  const salida = document.getElementById("rSalida").value;
+  const cab = cabanas.find(c=>c.id===cabinId);
+
+  if(!visitante){ return showErr(msg,"Ingresá el nombre del visitante."); }
+  if(!entrada || !salida || new Date(salida) <= new Date(entrada)){
+    return showErr(msg,"Las fechas de entrada y salida no son válidas.");
+  }
+  if(cab.mantenimiento){
+    return showErr(msg,`${cab.nombre} está en mantenimiento y no puede reservarse.`);
+  }
+  if(huespedes < 1 || huespedes > cab.capacidad){
+    return showErr(msg,`La capacidad máxima de ${cab.nombre} es ${cab.capacidad} huéspedes.`);
+  }
+  const choque = reservas.some(r => r.cabinId===cabinId && reservaActivaOFutura(r) && overlap(entrada, salida, r.entrada, r.salida));
+  if(choque){
+    return showErr(msg,`${cab.nombre} ya tiene una reserva que se superpone con esas fechas.`);
+  }
+
+  const precioTotal = noches(entrada,salida) * cab.precio;
+  const reserva = {
+    id: nextReservaId++, cabinId, visitante, huespedes, entrada, salida,
+    estado:"confirmada", pago:false, precioTotal, pulsera:null, acceso:false, consumos:[]
+  };
+  reservas.push(reserva);
+  ultimaReservaId = reserva.id;
+  document.getElementById("btnPagar").disabled = false;
+  showOk(msg, `Reserva #${reserva.id} creada para ${cab.nombre} (${noches(entrada,salida)} noches, total ${fmt(precioTotal)}). Registrá el pago para confirmarla del todo.`);
+  refreshAll();
+}
+
+function pagarUltimaReserva(){
+  const msg = document.getElementById("msgReserva");
+  const r = reservas.find(r=>r.id===ultimaReservaId);
+  if(!r){ return showErr(msg,"No hay una reserva reciente para pagar."); }
+  if(r.pago){ return showErr(msg,"Esa reserva ya fue pagada."); }
+  r.pago = true;
+  showOk(msg, `Pago de ${fmt(r.precioTotal)} registrado para la reserva #${r.id}. ¡Confirmada!`);
+  document.getElementById("btnPagar").disabled = true;
+  refreshAll();
+}
+
+/* ======================= CHECK-IN ======================= */
+function renderSelectCheckin(){
+  const sel = document.getElementById("ciReserva");
+  const disponibles = reservas.filter(r=>r.estado==="confirmada");
+  sel.innerHTML = disponibles.length
+    ? disponibles.map(r=>`<option value="${r.id}">#${r.id} · ${cabanas.find(c=>c.id===r.cabinId).nombre} · ${r.visitante} ${r.pago?"":"(pago pendiente)"}</option>`).join("")
+    : `<option value="">No hay reservas confirmadas</option>`;
+}
+
+function hacerCheckin(){
+  const msg = document.getElementById("msgCheckin");
+  const id = Number(document.getElementById("ciReserva").value);
+  const r = reservas.find(r=>r.id===id);
+  if(!r){ return showErr(msg,"Seleccioná una reserva confirmada válida."); }
+  if(r.estado !== "confirmada"){ return showErr(msg,"El visitante debe tener una reserva confirmada para hacer check-in."); }
+  if(!r.pago){ return showErr(msg,"La reserva tiene el pago pendiente. Registralo antes del check-in."); }
+  r.estado = "checkin";
+  r.pulsera = "PLS-" + String(1000 + r.id);
+  r.acceso = true;
+  showOk(msg, `Check-in realizado. Pulsera ${r.pulsera} asignada y habilitada exclusivamente para ${cabanas.find(c=>c.id===r.cabinId).nombre}.`);
+  refreshAll();
+}
+
+/* ======================= CONSUMOS ======================= */
+function renderSelectEnEstadia(selectId){
+  const sel = document.getElementById(selectId);
+  const activas = reservas.filter(r=>r.estado==="checkin");
+  sel.innerHTML = activas.length
+    ? activas.map(r=>`<option value="${r.id}">#${r.id} · ${cabanas.find(c=>c.id===r.cabinId).nombre} · ${r.visitante} · ${r.pulsera}</option>`).join("")
+    : `<option value="">No hay huéspedes en estadía</option>`;
+}
+
+function registrarConsumo(){
+  const msg = document.getElementById("msgConsumo");
+  const id = Number(document.getElementById("coReservaConsumo").value);
+  const r = reservas.find(r=>r.id===id);
+  const desc = document.getElementById("coDesc").value.trim();
+  const monto = Number(document.getElementById("coMonto").value);
+  if(!r || r.estado!=="checkin"){ return showErr(msg,"El visitante debe tener acceso activo (check-in) para registrar consumos."); }
+  if(!desc || monto<=0){ return showErr(msg,"Completá una descripción y un monto válido."); }
+  r.consumos.push({desc, monto});
+  showOk(msg, `Consumo de ${fmt(monto)} (${desc}) cargado a la pulsera ${r.pulsera}.`);
+  document.getElementById("coDesc").value = "";
+  document.getElementById("coMonto").value = 0;
+  refreshAll();
+}
+
+/* ======================= CHECK-OUT ======================= */
+function hacerCheckout(){
+  const msg = document.getElementById("msgCheckout");
+  const id = Number(document.getElementById("coReserva").value);
+  const r = reservas.find(r=>r.id===id);
+  if(!r || r.estado!=="checkin"){ return showErr(msg,"Solo se puede hacer check-out de una estadía con check-in activo."); }
+  r.estado = "checkout";
+  r.acceso = false;
+  const totalConsumos = r.consumos.reduce((a,c)=>a+c.monto,0);
+  const saldo = totalConsumos; // hospedaje ya fue pagado al confirmar
+  showOk(msg, `Check-out realizado. Acceso de la pulsera ${r.pulsera} deshabilitado. Saldo final por consumos: ${fmt(saldo)}.`);
+  refreshAll();
+}
+
+/* ======================= TABLA RESERVAS ======================= */
+function renderTablaReservas(){
+  const tbody = document.querySelector("#tablaReservas tbody");
+  if(reservas.length===0){
+    tbody.innerHTML = `<tr><td colspan="9" class="empty">Todavía no hay reservas registradas.</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = reservas.map(r=>{
+    const cab = cabanas.find(c=>c.id===r.cabinId);
+    const totalConsumos = r.consumos.reduce((a,c)=>a+c.monto,0);
+    return `<tr>
+      <td>${cab.nombre}</td>
+      <td>${r.visitante}</td>
+      <td>${r.entrada} → ${r.salida}</td>
+      <td>${r.huespedes}</td>
+      <td><span class="badge b-${r.estado==='checkin'?'ocupada':(r.estado==='checkout'?'mantenimiento':'reservada')}">${r.estado}</span></td>
+      <td>${r.pago ? fmt(r.precioTotal) : "pendiente"}</td>
+      <td>${r.pulsera ? `<span class="pill-band"><span class="dot"></span>${r.pulsera}</span>` : "—"}</td>
+      <td>${r.acceso ? "habilitado" : "deshabilitado"}</td>
+      <td>${fmt(totalConsumos)}</td>
+    </tr>`;
+  }).join("");
+}
+
+/* ======================= HELPERS DE MENSAJE ======================= */
+function showOk(el,text){ el.className="msg show ok"; el.textContent=text; }
+function showErr(el,text){ el.className="msg show err"; el.textContent=text; }
+
+/* ======================= TABS ======================= */
+document.querySelectorAll("nav.tabs button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll("section.panel").forEach(p=>p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("tab-"+btn.dataset.tab).classList.add("active");
+    refreshAll();
+  });
+});
+
+/* ======================= REFRESH GENERAL ======================= */
+function refreshAll(){
+  renderCabinGrid();
+  renderSelectCheckin();
+  renderSelectEnEstadia("coReservaConsumo");
+  renderSelectEnEstadia("coReserva");
+  renderTablaReservas();
+}
+
+/* ======================= INIT ======================= */
+(function init(){
+  renderSelectCabanas();
+  const today = new Date();
+  const in3 = new Date(today.getTime() + 3*86400000);
+  document.getElementById("rEntrada").value = today.toISOString().slice(0,10);
+  document.getElementById("rSalida").value = in3.toISOString().slice(0,10);
+  refreshAll();
+})();
+</script>
+</body>
+</html>
