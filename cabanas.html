@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Beach Club · Laguna Experience</title>
+<title>Laguna Experience · Cabañas</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -12,27 +13,25 @@
 <style>
 
 :root{
-  --ink:#122733;
-  --ink-soft:#4d6875;
+  --ink:#182823;
+  --ink-soft:#4b5f57;
 
-  --sand:#fdf3e3;
-  --paper:#fffdf7;
+  --sand:#f3ead6;
+  --paper:#fffdf8;
 
-  --turq:#0e879a;
-  --turq-deep:#0a5e6c;
-  --turq-light:#e1f2f4;
+  --lagoon:#0e6b5c;
+  --lagoon-deep:#0a4c42;
+  --lagoon-light:#e4f2ee;
 
-  --sun:#e8963a;
-  --sun-light:#fdf0dd;
+  --coral:#d9633b;
+  --coral-light:#fbe6dc;
 
-  --coral:#d9603c;
-  --coral-light:#fbe4da;
+  --gold:#c9971f;
+  --gold-light:#f8efd7;
 
-  --line:#ecdfc4;
+  --line:#e2d9c4;
 
   --ok:#1c7a45;
-
-  --radius:20px;
 
   font-family:'Inter',sans-serif;
 }
@@ -47,7 +46,9 @@ html{
 
 body{
   margin:0;
+
   background:var(--sand);
+
   color:var(--ink);
 }
 
@@ -55,23 +56,26 @@ body{
 /* ================= HEADER ================= */
 
 header{
+
   background:
     linear-gradient(
-      135deg,
-      var(--turq-deep),
-      var(--turq) 70%,
-      var(--sun) 130%
+      120deg,
+      var(--lagoon-deep),
+      var(--lagoon) 70%,
+      #3f8b70
     );
 
   color:white;
 
-  padding:30px 6vw 80px;
+  padding:30px 6vw 85px;
 
   position:relative;
+
   overflow:hidden;
 }
 
 header::before{
+
   content:"";
 
   position:absolute;
@@ -79,32 +83,35 @@ header::before{
   width:350px;
   height:350px;
 
+  right:-130px;
+  top:-180px;
+
   border-radius:50%;
 
-  right:-130px;
-  top:-160px;
-
-  background:rgba(255,255,255,.08);
+  background:rgba(255,255,255,.07);
 }
 
 header::after{
+
   content:"";
 
   position:absolute;
 
-  width:220px;
-  height:220px;
+  width:230px;
+  height:230px;
+
+  left:-130px;
+  bottom:-150px;
 
   border-radius:50%;
-
-  left:-120px;
-  bottom:-150px;
 
   background:rgba(255,255,255,.06);
 }
 
 .eyebrow{
+
   position:relative;
+
   z-index:2;
 
   font-family:'IBM Plex Mono',monospace;
@@ -119,7 +126,9 @@ header::after{
 }
 
 header h1{
+
   position:relative;
+
   z-index:2;
 
   font-family:'Fraunces',serif;
@@ -132,10 +141,12 @@ header h1{
 }
 
 header p{
+
   position:relative;
+
   z-index:2;
 
-  max-width:700px;
+  max-width:720px;
 
   margin:0;
 
@@ -150,20 +161,23 @@ header p{
 /* ================= MAIN ================= */
 
 main{
+
   max-width:1150px;
 
-  margin:-38px auto 70px;
+  margin:-40px auto 70px;
 
   padding:0 24px;
 
   position:relative;
+
   z-index:5;
 }
 
 
-/* ================= HERO CARD ================= */
+/* ================= HERO ================= */
 
 .hero-card{
+
   background:var(--paper);
 
   border:1px solid var(--line);
@@ -172,16 +186,17 @@ main{
 
   padding:32px;
 
-  box-shadow:
-    0 20px 45px -30px rgba(20,40,45,.35);
-
   margin-bottom:24px;
+
+  box-shadow:
+    0 20px 45px -30px rgba(20,40,35,.35);
 }
 
 .hero-card h2{
+
   font-family:'Fraunces',serif;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 
   font-size:30px;
 
@@ -189,6 +204,7 @@ main{
 }
 
 .hero-card p{
+
   color:var(--ink-soft);
 
   line-height:1.7;
@@ -202,6 +218,7 @@ main{
 /* ================= STATS ================= */
 
 .stats{
+
   display:grid;
 
   grid-template-columns:
@@ -213,6 +230,7 @@ main{
 }
 
 .stat{
+
   background:var(--paper);
 
   border:1px solid var(--line);
@@ -224,20 +242,22 @@ main{
   text-align:center;
 
   box-shadow:
-    0 8px 25px -18px rgba(20,40,45,.3);
+    0 8px 25px -18px rgba(20,40,35,.3);
 }
 
 .stat-number{
+
   font-family:'Fraunces',serif;
 
-  font-size:32px;
+  font-size:30px;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 
   font-weight:700;
 }
 
 .stat-label{
+
   margin-top:4px;
 
   color:var(--ink-soft);
@@ -250,9 +270,10 @@ main{
 }
 
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION ================= */
 
 .section{
+
   background:var(--paper);
 
   border:1px solid var(--line);
@@ -264,20 +285,22 @@ main{
   margin-bottom:24px;
 
   box-shadow:
-    0 10px 28px -22px rgba(20,40,45,.3);
+    0 10px 28px -22px rgba(20,40,35,.3);
 }
 
 .section-title{
+
   margin:0;
 
   font-family:'Fraunces',serif;
 
   font-size:27px;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 }
 
 .section-description{
+
   margin:7px 0 24px;
 
   color:var(--ink-soft);
@@ -288,9 +311,161 @@ main{
 }
 
 
-/* ================= EXPERIENCE CARDS ================= */
+/* ================= CABINS ================= */
 
-.cards{
+.cabin-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:16px;
+}
+
+.cabin{
+
+  background:white;
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  padding:22px;
+
+  transition:.2s;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.cabin:hover{
+
+  transform:translateY(-4px);
+
+  border-color:var(--lagoon);
+
+  box-shadow:
+    0 14px 30px -20px rgba(14,107,92,.4);
+}
+
+.cabin-top{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-bottom:15px;
+}
+
+.cabin-icon{
+
+  width:48px;
+  height:48px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:14px;
+
+  background:var(--lagoon-light);
+
+  font-size:25px;
+}
+
+.cabin h3{
+
+  font-family:'Fraunces',serif;
+
+  color:var(--lagoon-deep);
+
+  font-size:21px;
+
+  margin:0 0 6px;
+}
+
+.cabin p{
+
+  color:var(--ink-soft);
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  margin:0 0 15px;
+}
+
+.cabin-info{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+}
+
+.tag{
+
+  background:var(--sand);
+
+  border:1px solid var(--line);
+
+  color:var(--ink-soft);
+
+  padding:6px 9px;
+
+  border-radius:999px;
+
+  font-size:11px;
+
+  font-weight:600;
+}
+
+.price{
+
+  margin-top:17px;
+
+  padding-top:15px;
+
+  border-top:1px solid var(--line);
+
+  display:flex;
+
+  align-items:end;
+
+  justify-content:space-between;
+
+  gap:10px;
+}
+
+.price small{
+
+  display:block;
+
+  color:var(--ink-soft);
+
+  font-size:11px;
+}
+
+.price strong{
+
+  color:var(--lagoon);
+
+  font-size:19px;
+}
+
+
+/* ================= EXPERIENCE ================= */
+
+.experience-grid{
+
   display:grid;
 
   grid-template-columns:
@@ -299,65 +474,66 @@ main{
   gap:14px;
 }
 
-.card{
+.experience{
+
   border:1px solid var(--line);
 
-  border-radius:18px;
+  border-radius:17px;
 
   padding:20px;
 
-  background:var(--turq-light);
-
-  transition:.2s;
+  background:var(--lagoon-light);
 }
 
-.card:hover{
-  transform:translateY(-4px);
+.experience:nth-child(2){
 
-  border-color:var(--turq);
-
-  box-shadow:
-    0 12px 25px -18px rgba(14,135,154,.4);
+  background:var(--gold-light);
 }
 
-.card.sun{
-  background:var(--sun-light);
+.experience:nth-child(3){
+
+  background:#eef1e4;
 }
 
-.card.coral{
+.experience:nth-child(4){
+
   background:var(--coral-light);
 }
 
-.card h3{
-  font-family:'Fraunces',serif;
+.experience-icon{
 
-  color:var(--turq-deep);
+  font-size:27px;
 
-  font-size:19px;
-
-  margin:0 0 8px;
+  margin-bottom:10px;
 }
 
-.card p{
-  margin:0;
+.experience h3{
+
+  font-family:'Fraunces',serif;
+
+  color:var(--lagoon-deep);
+
+  font-size:18px;
+
+  margin:0 0 7px;
+}
+
+.experience p{
 
   color:var(--ink-soft);
 
   font-size:13px;
 
   line-height:1.6;
-}
 
-.icon{
-  font-size:28px;
-
-  margin-bottom:10px;
+  margin:0;
 }
 
 
-/* ================= INFO GRID ================= */
+/* ================= INFO ================= */
 
 .info-grid{
+
   display:grid;
 
   grid-template-columns:
@@ -367,6 +543,7 @@ main{
 }
 
 .info{
+
   border:1px solid var(--line);
 
   border-radius:16px;
@@ -377,9 +554,10 @@ main{
 }
 
 .info strong{
+
   display:block;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 
   font-family:'Fraunces',serif;
 
@@ -389,6 +567,7 @@ main{
 }
 
 .info span{
+
   color:var(--ink-soft);
 
   font-size:13px;
@@ -397,57 +576,18 @@ main{
 }
 
 
-/* ================= GASTRONOMY ================= */
-
-.food-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
-  gap:12px;
-}
-
-.food{
-  background:white;
-
-  border:1px solid var(--line);
-
-  border-radius:15px;
-
-  padding:17px;
-}
-
-.food h3{
-  font-family:'Fraunces',serif;
-
-  color:var(--turq-deep);
-
-  font-size:16px;
-
-  margin:0 0 8px;
-}
-
-.food .price{
-  color:var(--turq);
-
-  font-weight:700;
-
-  font-size:14px;
-}
-
-
 /* ================= RESERVATION ================= */
 
 .reservation{
+
   background:
     linear-gradient(
       135deg,
-      #e1f2f4,
-      #fffdf7
+      #e4f2ee,
+      #fffdf8
     );
 
-  border:1px solid #cde5e8;
+  border:1px solid #c9e2da;
 
   border-radius:24px;
 
@@ -455,9 +595,10 @@ main{
 }
 
 .reservation h2{
+
   font-family:'Fraunces',serif;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 
   font-size:30px;
 
@@ -465,6 +606,7 @@ main{
 }
 
 .reservation > p{
+
   color:var(--ink-soft);
 
   font-size:14px;
@@ -476,6 +618,7 @@ main{
 /* ================= FORM ================= */
 
 .form-grid{
+
   display:grid;
 
   grid-template-columns:
@@ -485,9 +628,10 @@ main{
 }
 
 .form-group label{
+
   display:block;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 
   font-size:12.5px;
 
@@ -498,6 +642,7 @@ main{
 
 .form-group input,
 .form-group select{
+
   width:100%;
 
   padding:12px 13px;
@@ -517,75 +662,72 @@ main{
 
 .form-group input:focus,
 .form-group select:focus{
-  outline:2px solid var(--turq);
+
+  outline:2px solid var(--lagoon);
 
   outline-offset:1px;
 }
 
 
-/* ================= CHECKBOXES ================= */
+/* ================= PRICE BOX ================= */
 
-.options{
-  display:flex;
+.total-box{
 
-  gap:12px;
+  margin-top:20px;
 
-  flex-wrap:wrap;
-}
+  padding:18px;
 
-.option{
-  flex:1;
-
-  min-width:180px;
-}
-
-.option input{
-  display:none;
-}
-
-.option label{
-  display:block;
-
-  padding:15px;
+  border-radius:15px;
 
   background:white;
 
   border:1px solid var(--line);
 
-  border-radius:13px;
+  display:flex;
 
-  cursor:pointer;
+  align-items:center;
 
-  transition:.15s;
+  justify-content:space-between;
+
+  gap:15px;
 }
 
-.option label strong{
-  display:block;
-
-  color:var(--turq-deep);
-
-  margin-bottom:4px;
-}
-
-.option label span{
-  font-size:12px;
+.total-label{
 
   color:var(--ink-soft);
+
+  font-size:13px;
 }
 
-.option input:checked + label{
-  border-color:var(--turq);
+.total-label strong{
 
-  background:var(--turq-light);
+  display:block;
 
-  box-shadow:
-    0 0 0 2px rgba(14,135,154,.1);
+  color:var(--lagoon-deep);
+
+  font-family:'Fraunces',serif;
+
+  font-size:19px;
+
+  margin-bottom:2px;
+}
+
+.total-price{
+
+  color:var(--lagoon);
+
+  font-family:'Fraunces',serif;
+
+  font-size:27px;
+
+  font-weight:700;
 }
 
 
 /* ================= BUTTON ================= */
 
 button{
+
   border:none;
 
   border-radius:12px;
@@ -604,18 +746,21 @@ button{
 }
 
 button.primary{
-  background:var(--turq);
+
+  background:var(--lagoon);
 
   color:white;
 }
 
 button.primary:hover{
-  background:var(--turq-deep);
+
+  background:var(--lagoon-deep);
 
   transform:translateY(-1px);
 }
 
 .reserve-button{
+
   margin-top:20px;
 
   width:100%;
@@ -629,27 +774,30 @@ button.primary:hover{
 /* ================= LOGIN ================= */
 
 .login-box{
+
   display:none;
 
   margin-top:20px;
 
   padding:20px;
 
-  background:var(--sun-light);
+  background:#f8efd7;
 
-  border:1px solid #f0d6ad;
+  border:1px solid #e6d2a3;
 
   border-radius:16px;
 }
 
 .login-box.show{
+
   display:block;
 }
 
 .login-box h3{
+
   font-family:'Fraunces',serif;
 
-  color:#8b5b18;
+  color:#80621b;
 
   margin:0 0 6px;
 
@@ -657,14 +805,33 @@ button.primary:hover{
 }
 
 .login-box p{
+
   color:var(--ink-soft);
 
   font-size:13px;
 
-  margin:0 0 16px;
+  margin:0 0 14px;
+}
+
+.demo-login{
+
+  background:rgba(255,255,255,.65);
+
+  border:1px dashed #d8bd7d;
+
+  border-radius:10px;
+
+  padding:10px 12px;
+
+  margin-bottom:15px;
+
+  color:#725b29;
+
+  font-size:12px;
 }
 
 .login-grid{
+
   display:grid;
 
   grid-template-columns:
@@ -676,9 +843,10 @@ button.primary:hover{
 }
 
 .login-grid label{
+
   display:block;
 
-  color:#8b5b18;
+  color:#80621b;
 
   font-size:12px;
 
@@ -688,11 +856,12 @@ button.primary:hover{
 }
 
 .login-grid input{
+
   width:100%;
 
   padding:11px;
 
-  border:1px solid #e4c999;
+  border:1px solid #dec791;
 
   border-radius:9px;
 
@@ -700,9 +869,69 @@ button.primary:hover{
 }
 
 
+/* ================= SESSION ================= */
+
+.logged-box{
+
+  display:none;
+
+  margin-bottom:18px;
+
+  padding:13px 16px;
+
+  border-radius:12px;
+
+  background:#dff3e6;
+
+  border:1px solid #c1e2cd;
+
+  color:var(--ok);
+
+  font-size:13px;
+
+  font-weight:600;
+}
+
+.logged-box.show{
+
+  display:block;
+}
+
+
+/* ================= MESSAGE ================= */
+
+.message{
+
+  display:none;
+
+  margin-top:14px;
+
+  padding:12px 14px;
+
+  border-radius:10px;
+
+  font-size:13px;
+}
+
+.message.show{
+
+  display:block;
+}
+
+.message.error{
+
+  background:var(--coral-light);
+
+  border:1px solid #efc4b8;
+
+  color:#a8391c;
+}
+
+
 /* ================= CONFIRMATION ================= */
 
 .confirmation{
+
   display:none;
 
   margin-top:20px;
@@ -719,10 +948,12 @@ button.primary:hover{
 }
 
 .confirmation.show{
+
   display:block;
 }
 
 .confirmation h3{
+
   font-family:'Fraunces',serif;
 
   font-size:24px;
@@ -731,6 +962,7 @@ button.primary:hover{
 }
 
 .confirmation p{
+
   margin:6px 0;
 
   font-size:14px;
@@ -740,6 +972,7 @@ button.primary:hover{
 /* ================= BEFORE ================= */
 
 .before-grid{
+
   display:grid;
 
   grid-template-columns:
@@ -749,6 +982,7 @@ button.primary:hover{
 }
 
 .before{
+
   padding:18px;
 
   border-radius:16px;
@@ -759,9 +993,10 @@ button.primary:hover{
 }
 
 .before h3{
+
   font-family:'Fraunces',serif;
 
-  color:var(--turq-deep);
+  color:var(--lagoon-deep);
 
   font-size:18px;
 
@@ -769,6 +1004,7 @@ button.primary:hover{
 }
 
 .before p{
+
   color:var(--ink-soft);
 
   font-size:13px;
@@ -779,36 +1015,10 @@ button.primary:hover{
 }
 
 
-/* ================= MESSAGE ================= */
-
-.message{
-  display:none;
-
-  margin-top:14px;
-
-  padding:12px 14px;
-
-  border-radius:10px;
-
-  font-size:13px;
-}
-
-.message.show{
-  display:block;
-}
-
-.message.error{
-  background:var(--coral-light);
-
-  border:1px solid #efc4b8;
-
-  color:#a8391c;
-}
-
-
 /* ================= FOOTER ================= */
 
 footer{
+
   text-align:center;
 
   color:var(--ink-soft);
@@ -823,19 +1033,16 @@ footer{
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
-  .cards{
+  .cabin-grid{
+
     grid-template-columns:
       repeat(2,1fr);
   }
 
-  .food-grid{
-    grid-template-columns:
-      repeat(3,1fr);
-  }
+  .experience-grid{
 
-  .before-grid{
     grid-template-columns:
       repeat(2,1fr);
   }
@@ -845,59 +1052,73 @@ footer{
 @media(max-width:700px){
 
   header{
+
     padding:25px 20px 70px;
   }
 
   main{
+
     padding:0 16px;
   }
 
   .hero-card,
   .section,
   .reservation{
+
     padding:22px;
   }
 
   .stats{
+
     grid-template-columns:
       repeat(3,1fr);
   }
 
   .stat{
+
     padding:15px 8px;
   }
 
   .stat-number{
+
     font-size:25px;
   }
 
   .stat-label{
+
     font-size:10px;
   }
 
-  .cards{
+  .cabin-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .experience-grid{
+
     grid-template-columns:1fr;
   }
 
   .info-grid{
-    grid-template-columns:1fr;
-  }
 
-  .food-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .before-grid{
     grid-template-columns:1fr;
   }
 
   .form-grid{
+
     grid-template-columns:1fr;
   }
 
   .login-grid{
+
     grid-template-columns:1fr;
+  }
+
+  .total-box{
+
+    align-items:flex-start;
+
+    flex-direction:column;
   }
 
 }
@@ -905,20 +1126,19 @@ footer{
 @media(max-width:450px){
 
   .stats{
-    grid-template-columns:1fr;
-  }
 
-  .food-grid{
     grid-template-columns:1fr;
   }
 
   header h1{
+
     font-size:42px;
   }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -927,14 +1147,14 @@ footer{
 <header>
 
   <div class="eyebrow">
-    Laguna Experience · Experiencia
+    Laguna Experience · Hospedaje
   </div>
 
-  <h1>Beach Club</h1>
+  <h1>Cabañas</h1>
 
   <p>
-    Un espacio junto a la laguna para relajarte, disfrutar de la piscina,
-    descansar en una reposera y acompañar tu experiencia con gastronomía.
+    Un espacio para descansar rodeado de naturaleza y disfrutar
+    Laguna Experience durante una estadía completa.
   </p>
 
 </header>
@@ -947,13 +1167,14 @@ footer{
 
   <section class="hero-card">
 
-    <h2>Disfrutá tu día junto a la laguna</h2>
+    <h2>
+      Tu lugar para desconectar
+    </h2>
 
     <p>
-      El Beach Club combina descanso, piscina y gastronomía en un mismo
-      espacio. Reservá tu lugar, disfrutá de las instalaciones y viví
-      una experiencia pensada para pasar el día sin preocuparte por la
-      organización.
+      Elegí una de nuestras cabañas y disfrutá de una estadía pensada
+      para descansar, conectar con la naturaleza y tener acceso a las
+      distintas experiencias de Laguna Experience.
     </p>
 
   </section>
@@ -966,11 +1187,11 @@ footer{
     <div class="stat">
 
       <div class="stat-number">
-        40
+        5
       </div>
 
       <div class="stat-label">
-        Capacidad del club
+        Cabañas
       </div>
 
     </div>
@@ -979,11 +1200,11 @@ footer{
     <div class="stat">
 
       <div class="stat-number">
-        15
+        6
       </div>
 
       <div class="stat-label">
-        Capacidad piscina
+        Huéspedes máximos
       </div>
 
     </div>
@@ -992,12 +1213,247 @@ footer{
     <div class="stat">
 
       <div class="stat-number">
-        12
+        4
       </div>
 
       <div class="stat-label">
-        Reposeras
+        Opciones disponibles
       </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CABAÑAS ================= -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      Elegí tu cabaña
+    </h2>
+
+    <p class="section-description">
+      Cada cabaña tiene una capacidad diferente para adaptarse a tu
+      estadía.
+    </p>
+
+
+    <div class="cabin-grid">
+
+
+      <div class="cabin">
+
+        <div class="cabin-top">
+
+          <div class="cabin-icon">
+            🏡
+          </div>
+
+        </div>
+
+        <h3>
+          Cabaña Ceibo
+        </h3>
+
+        <p>
+          Una opción acogedora para parejas o estadías de hasta
+          dos personas.
+        </p>
+
+        <div class="cabin-info">
+
+          <span class="tag">
+            👥 Hasta 2 personas
+          </span>
+
+          <span class="tag">
+            🌿 Naturaleza
+          </span>
+
+        </div>
+
+        <div class="price">
+
+          <div>
+            <small>
+              Desde
+            </small>
+
+            <strong>
+              $38.000
+            </strong>
+          </div>
+
+          <small>
+            por noche
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="cabin">
+
+        <div class="cabin-top">
+
+          <div class="cabin-icon">
+            🌿
+          </div>
+
+        </div>
+
+        <h3>
+          Cabaña Timbó
+        </h3>
+
+        <p>
+          Un espacio cómodo para disfrutar en familia o con amigos.
+        </p>
+
+        <div class="cabin-info">
+
+          <span class="tag">
+            👥 Hasta 4 personas
+          </span>
+
+          <span class="tag">
+            🌳 Naturaleza
+          </span>
+
+        </div>
+
+        <div class="price">
+
+          <div>
+
+            <small>
+              Desde
+            </small>
+
+            <strong>
+              $52.000
+            </strong>
+
+          </div>
+
+          <small>
+            por noche
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="cabin">
+
+        <div class="cabin-top">
+
+          <div class="cabin-icon">
+            🌊
+          </div>
+
+        </div>
+
+        <h3>
+          Cabaña Sauce
+        </h3>
+
+        <p>
+          La opción más amplia para grupos que buscan compartir
+          la experiencia.
+        </p>
+
+        <div class="cabin-info">
+
+          <span class="tag">
+            👥 Hasta 6 personas
+          </span>
+
+          <span class="tag">
+            🌿 Amplia
+          </span>
+
+        </div>
+
+        <div class="price">
+
+          <div>
+
+            <small>
+              Desde
+            </small>
+
+            <strong>
+              $71.000
+            </strong>
+
+          </div>
+
+          <small>
+            por noche
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="cabin">
+
+        <div class="cabin-top">
+
+          <div class="cabin-icon">
+            🌅
+          </div>
+
+        </div>
+
+        <h3>
+          Cabaña Curupí
+        </h3>
+
+        <p>
+          Una alternativa amplia para disfrutar una estadía
+          compartida.
+        </p>
+
+        <div class="cabin-info">
+
+          <span class="tag">
+            👥 Hasta 5 personas
+          </span>
+
+          <span class="tag">
+            🌳 Naturaleza
+          </span>
+
+        </div>
+
+        <div class="price">
+
+          <div>
+
+            <small>
+              Desde
+            </small>
+
+            <strong>
+              $63.000
+            </strong>
+
+          </div>
+
+          <small>
+            por noche
+          </small>
+
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -1009,77 +1465,85 @@ footer{
   <section class="section">
 
     <h2 class="section-title">
-      ¿Qué podés disfrutar?
+      Viví más que una estadía
     </h2>
 
     <p class="section-description">
-      Todo lo necesario para pasar un momento de descanso y diversión
-      dentro de Laguna Experience.
+      Hospedarte en Laguna Experience te permite aprovechar el
+      entorno y descubrir distintas actividades.
     </p>
 
 
-    <div class="cards">
+    <div class="experience-grid">
 
 
-      <div class="card">
+      <div class="experience">
 
-        <div class="icon">
+        <div class="experience-icon">
+          🌿
+        </div>
+
+        <h3>
+          Naturaleza
+        </h3>
+
+        <p>
+          Descansá en un entorno natural y disfrutá de momentos
+          tranquilos lejos de la rutina.
+        </p>
+
+      </div>
+
+
+      <div class="experience">
+
+        <div class="experience-icon">
           🏊
         </div>
 
-        <h3>Piscina</h3>
+        <h3>
+          Actividades
+        </h3>
 
         <p>
-          Refrescate y disfrutá de la piscina durante tu visita al
-          Beach Club.
+          Combiná tu estadía con las distintas experiencias
+          disponibles dentro del complejo.
         </p>
 
       </div>
 
 
-      <div class="card sun">
+      <div class="experience">
 
-        <div class="icon">
-          🪑
-        </div>
-
-        <h3>Reposera</h3>
-
-        <p>
-          Contás con espacios de descanso para relajarte junto a la
-          piscina y la laguna.
-        </p>
-
-      </div>
-
-
-      <div class="card coral">
-
-        <div class="icon">
+        <div class="experience-icon">
           🍽️
         </div>
 
-        <h3>Gastronomía</h3>
+        <h3>
+          Gastronomía
+        </h3>
 
         <p>
-          Elegí entre distintas opciones de comidas y bebidas para
-          acompañar tu experiencia.
+          Disfrutá de diferentes propuestas gastronómicas durante
+          tu visita.
         </p>
 
       </div>
 
 
-      <div class="card">
+      <div class="experience">
 
-        <div class="icon">
-          🌴
+        <div class="experience-icon">
+          🌅
         </div>
 
-        <h3>Relax</h3>
+        <h3>
+          Descanso
+        </h3>
 
         <p>
-          Un espacio pensado para desconectarte y disfrutar de un día
-          tranquilo junto al agua.
+          Una experiencia pensada para bajar el ritmo y disfrutar
+          el entorno.
         </p>
 
       </div>
@@ -1099,8 +1563,7 @@ footer{
     </h2>
 
     <p class="section-description">
-      Tu reserva organiza el acceso y los servicios disponibles durante
-      tu visita.
+      Reservar tu cabaña es simple.
     </p>
 
 
@@ -1109,11 +1572,13 @@ footer{
 
       <div class="info">
 
-        <strong>1. Reservá</strong>
+        <strong>
+          1. Elegí tu cabaña
+        </strong>
 
         <span>
-          Elegí la fecha y la cantidad de personas con las que querés
-          disfrutar del Beach Club.
+          Seleccioná la opción que mejor se adapte a la cantidad
+          de personas de tu grupo.
         </span>
 
       </div>
@@ -1121,11 +1586,13 @@ footer{
 
       <div class="info">
 
-        <strong>2. Ingresá</strong>
+        <strong>
+          2. Seleccioná las fechas
+        </strong>
 
         <span>
-          Al llegar, tu reserva permite identificar tu acceso al
-          Beach Club.
+          Indicá la fecha de entrada y la fecha de salida para
+          consultar tu estadía.
         </span>
 
       </div>
@@ -1133,11 +1600,12 @@ footer{
 
       <div class="info">
 
-        <strong>3. Disfrutá</strong>
+        <strong>
+          3. Confirmá tu reserva
+        </strong>
 
         <span>
-          Podés utilizar los espacios disponibles, disfrutar de la
-          piscina y relajarte en el club.
+          Iniciá sesión y confirmá la reserva de tu cabaña.
         </span>
 
       </div>
@@ -1145,155 +1613,14 @@ footer{
 
       <div class="info">
 
-        <strong>4. Consumí</strong>
+        <strong>
+          4. Disfrutá tu estadía
+        </strong>
 
         <span>
-          Tus consumos pueden asociarse a tu cuenta durante la visita
-          para facilitar el pago al finalizar.
+          Al llegar, presentá tu reserva y comenzá a disfrutar
+          Laguna Experience.
         </span>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= SERVICIOS ================= -->
-
-  <section class="section">
-
-    <h2 class="section-title">
-      Servicios disponibles
-    </h2>
-
-    <p class="section-description">
-      Estas son algunas de las opciones disponibles dentro del
-      Beach Club.
-    </p>
-
-
-    <div class="info-grid">
-
-
-      <div class="info">
-
-        <strong>🏊 Piscina</strong>
-
-        <span>
-          Capacidad máxima de 15 personas.
-        </span>
-
-      </div>
-
-
-      <div class="info">
-
-        <strong>🪑 Reposeras</strong>
-
-        <span>
-          El espacio cuenta con 12 reposeras disponibles.
-        </span>
-
-      </div>
-
-
-      <div class="info">
-
-        <strong>🍽️ Gastronomía</strong>
-
-        <span>
-          Comidas y bebidas disponibles durante tu experiencia.
-        </span>
-
-      </div>
-
-
-      <div class="info">
-
-        <strong>🎟️ Pulsera</strong>
-
-        <span>
-          Durante el ingreso se utiliza una pulsera para identificar
-          tu acceso y asociar los servicios.
-        </span>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= GASTRONOMÍA ================= -->
-
-  <section class="section">
-
-    <h2 class="section-title">
-      Gastronomía
-    </h2>
-
-    <p class="section-description">
-      Algunas de las opciones disponibles para acompañar tu visita.
-    </p>
-
-
-    <div class="food-grid">
-
-
-      <div class="food">
-
-        <h3>Agua mineral</h3>
-
-        <div class="price">
-          $2.500
-        </div>
-
-      </div>
-
-
-      <div class="food">
-
-        <h3>Tabla de picada</h3>
-
-        <div class="price">
-          $14.500
-        </div>
-
-      </div>
-
-
-      <div class="food">
-
-        <h3>Smoothie tropical</h3>
-
-        <div class="price">
-          $4.800
-        </div>
-
-      </div>
-
-
-      <div class="food">
-
-        <h3>Ensalada Laguna</h3>
-
-        <div class="price">
-          $9.800
-        </div>
-
-      </div>
-
-
-      <div class="food">
-
-        <h3>Bebidas</h3>
-
-        <div class="price">
-          Disponibles en el club
-        </div>
 
       </div>
 
@@ -1305,15 +1632,33 @@ footer{
 
   <!-- ================= RESERVA ================= -->
 
-  <section class="reservation" id="reserva">
+  <section
+    class="reservation"
+    id="reserva"
+  >
 
     <h2>
-      Reservá tu experiencia
+      Reservá tu cabaña
     </h2>
 
     <p>
-      Completá los datos para reservar tu lugar en el Beach Club.
+      Elegí la cabaña, las fechas y la cantidad de huéspedes.
+      El sistema calculará automáticamente el valor de la estadía.
     </p>
+
+
+    <!-- ESTADO DE SESIÓN -->
+
+    <div
+      class="logged-box"
+      id="loggedBox"
+    >
+
+      ✓ Sesión iniciada como
+      <strong>cliente</strong>.
+      Ya podés confirmar tu reserva.
+
+    </div>
 
 
     <form id="reservaForm">
@@ -1324,13 +1669,48 @@ footer{
 
         <div class="form-group">
 
-          <label for="fecha">
-            Fecha
+          <label for="cabanas">
+            Cabaña
+          </label>
+
+          <select
+            id="cabanas"
+            required
+          >
+
+            <option value="1">
+              Cabaña Ceibo · hasta 2 personas
+            </option>
+
+            <option value="2">
+              Cabaña Timbó · hasta 4 personas
+            </option>
+
+            <option value="3">
+              Cabaña Sauce · hasta 6 personas
+            </option>
+
+            <option value="5">
+              Cabaña Curupí · hasta 5 personas
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="huespedes">
+            Cantidad de huéspedes
           </label>
 
           <input
-            type="date"
-            id="fecha"
+            type="number"
+            id="huespedes"
+            min="1"
+            max="6"
+            value="2"
             required
           >
 
@@ -1339,16 +1719,28 @@ footer{
 
         <div class="form-group">
 
-          <label for="personas">
-            Cantidad de personas
+          <label for="entrada">
+            Fecha de entrada
           </label>
 
           <input
-            type="number"
-            id="personas"
-            min="1"
-            max="40"
-            value="1"
+            type="date"
+            id="entrada"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="salida">
+            Fecha de salida
+          </label>
+
+          <input
+            type="date"
+            id="salida"
             required
           >
 
@@ -1358,84 +1750,25 @@ footer{
       </div>
 
 
-      <div style="margin-top:20px;">
+      <div class="total-box">
 
-        <label style="
-          display:block;
-          color:var(--turq-deep);
-          font-size:12.5px;
-          font-weight:700;
-          margin-bottom:8px;
-        ">
-          ¿Qué querés disfrutar?
-        </label>
+        <div class="total-label">
 
+          <strong>
+            Total estimado
+          </strong>
 
-        <div class="options">
+          <span id="detalleNoches">
+            Seleccioná tus fechas.
+          </span>
 
+        </div>
 
-          <div class="option">
-
-            <input
-              type="checkbox"
-              id="piscina"
-              checked
-            >
-
-            <label for="piscina">
-
-              <strong>🏊 Piscina</strong>
-
-              <span>
-                Acceso a la piscina durante tu visita.
-              </span>
-
-            </label>
-
-          </div>
-
-
-          <div class="option">
-
-            <input
-              type="checkbox"
-              id="reposera"
-              checked
-            >
-
-            <label for="reposera">
-
-              <strong>🪑 Reposera</strong>
-
-              <span>
-                Solicitar espacio de descanso.
-              </span>
-
-            </label>
-
-          </div>
-
-
-          <div class="option">
-
-            <input
-              type="checkbox"
-              id="gastronomia"
-            >
-
-            <label for="gastronomia">
-
-              <strong>🍽️ Gastronomía</strong>
-
-              <span>
-                Consultar opciones disponibles.
-              </span>
-
-            </label>
-
-          </div>
-
-
+        <div
+          class="total-price"
+          id="totalPrecio"
+        >
+          $0
         </div>
 
       </div>
@@ -1445,7 +1778,7 @@ footer{
         type="submit"
         class="primary reserve-button"
       >
-        Reservar Beach Club
+        Reservar cabaña
       </button>
 
 
@@ -1454,15 +1787,31 @@ footer{
 
     <!-- ================= LOGIN ================= -->
 
-    <div class="login-box" id="loginBox">
+    <div
+      class="login-box"
+      id="loginBox"
+    >
 
       <h3>
         Iniciá sesión para continuar
       </h3>
 
       <p>
-        Necesitamos identificarte antes de confirmar tu reserva.
+        Antes de confirmar tu reserva necesitamos identificarte.
       </p>
+
+
+      <div class="demo-login">
+
+        <strong>
+          Acceso de demostración:
+        </strong>
+
+        usuario: cliente
+        &nbsp;·&nbsp;
+        contraseña: 12345
+
+      </div>
 
 
       <div class="login-grid">
@@ -1512,8 +1861,8 @@ footer{
 
       <div
         class="message"
-        id="loginError">
-      </div>
+        id="loginError"
+      ></div>
 
     </div>
 
@@ -1530,32 +1879,81 @@ footer{
       </h3>
 
       <p>
-        Tu reserva para el Beach Club fue registrada correctamente.
+        Tu reserva de cabaña fue registrada correctamente.
       </p>
 
+
       <p>
-        <strong>Reserva:</strong>
+
+        <strong>
+          Reserva:
+        </strong>
+
         <span id="reservaId"></span>
+
       </p>
+
 
       <p>
-        <strong>Fecha:</strong>
-        <span id="reservaFecha"></span>
+
+        <strong>
+          Cabaña:
+        </strong>
+
+        <span id="reservaCabana"></span>
+
       </p>
+
 
       <p>
-        <strong>Personas:</strong>
-        <span id="reservaPersonas"></span>
+
+        <strong>
+          Entrada:
+        </strong>
+
+        <span id="reservaEntrada"></span>
+
       </p>
+
 
       <p>
-        <strong>Servicios:</strong>
-        <span id="reservaServicios"></span>
+
+        <strong>
+          Salida:
+        </strong>
+
+        <span id="reservaSalida"></span>
+
       </p>
 
-      <p style="margin-top:14px;">
-        Al ingresar, recibirás la identificación correspondiente
-        para utilizar los servicios del Beach Club.
+
+      <p>
+
+        <strong>
+          Huéspedes:
+        </strong>
+
+        <span id="reservaHuespedes"></span>
+
+      </p>
+
+
+      <p>
+
+        <strong>
+          Total:
+        </strong>
+
+        <span id="reservaTotal"></span>
+
+      </p>
+
+
+      <p style="margin-top:15px;">
+
+        Presentá tu reserva al llegar para gestionar el ingreso
+        a la cabaña.
+
       </p>
 
     </div>
@@ -1572,7 +1970,7 @@ footer{
     </h2>
 
     <p class="section-description">
-      Algunos datos importantes para disfrutar mejor tu experiencia.
+      Algunos datos importantes para preparar tu estadía.
     </p>
 
 
@@ -1581,12 +1979,13 @@ footer{
 
       <div class="before">
 
-        <h3>🎟️ Acceso</h3>
+        <h3>
+          📅 Fechas
+        </h3>
 
         <p>
-          Tené disponible tu reserva al momento de ingresar.
-          El sistema utilizará tu identificación para gestionar
-          el acceso.
+          Revisá correctamente las fechas de entrada y salida
+          antes de confirmar tu reserva.
         </p>
 
       </div>
@@ -1594,11 +1993,13 @@ footer{
 
       <div class="before">
 
-        <h3>🏊 Piscina</h3>
+        <h3>
+          👥 Huéspedes
+        </h3>
 
         <p>
-          La piscina cuenta con una capacidad máxima de 15 personas
-          para mantener una experiencia cómoda.
+          La cantidad de huéspedes debe respetar la capacidad
+          máxima de la cabaña seleccionada.
         </p>
 
       </div>
@@ -1606,11 +2007,13 @@ footer{
 
       <div class="before">
 
-        <h3>🪑 Reposeras</h3>
+        <h3>
+          🎟️ Ingreso
+        </h3>
 
         <p>
-          La disponibilidad de reposeras es limitada y se organiza
-          según las reservas y disponibilidad del momento.
+          Tené disponible tu reserva al momento de llegar al
+          complejo.
         </p>
 
       </div>
@@ -1625,11 +2028,44 @@ footer{
 
 
 <footer>
-  Laguna Experience — Beach Club
+  Laguna Experience — Cabañas
 </footer>
 
 
 <script>
+
+
+/* ================================
+   DATOS
+================================ */
+
+const cabanas = {
+
+  1:{
+    nombre:"Cabaña Ceibo",
+    capacidad:2,
+    precio:38000
+  },
+
+  2:{
+    nombre:"Cabaña Timbó",
+    capacidad:4,
+    precio:52000
+  },
+
+  3:{
+    nombre:"Cabaña Sauce",
+    capacidad:6,
+    precio:71000
+  },
+
+  5:{
+    nombre:"Cabaña Curupí",
+    capacidad:5,
+    precio:63000
+  }
+
+};
 
 
 /* ================================
@@ -1639,17 +2075,38 @@ footer{
 const reservaForm =
   document.getElementById("reservaForm");
 
+const cabanaInput =
+  document.getElementById("cabanas");
+
+const huespedesInput =
+  document.getElementById("huespedes");
+
+const entradaInput =
+  document.getElementById("entrada");
+
+const salidaInput =
+  document.getElementById("salida");
+
+const totalPrecio =
+  document.getElementById("totalPrecio");
+
+const detalleNoches =
+  document.getElementById("detalleNoches");
+
 const loginBox =
   document.getElementById("loginBox");
 
 const loginButton =
   document.getElementById("loginButton");
 
-const confirmation =
-  document.getElementById("confirmation");
-
 const loginError =
   document.getElementById("loginError");
+
+const loggedBox =
+  document.getElementById("loggedBox");
+
+const confirmation =
+  document.getElementById("confirmation");
 
 
 let reservaPendiente = null;
@@ -1659,16 +2116,230 @@ let reservaPendiente = null;
    FECHA MÍNIMA
 ================================ */
 
-const fechaInput =
-  document.getElementById("fecha");
-
 const hoy =
   new Date();
 
 const fechaHoy =
   hoy.toISOString().split("T")[0];
 
-fechaInput.min = fechaHoy;
+entradaInput.min =
+  fechaHoy;
+
+salidaInput.min =
+  fechaHoy;
+
+
+/* ================================
+   FECHA SALIDA
+================================ */
+
+entradaInput.addEventListener(
+  "change",
+  function(){
+
+    salidaInput.min =
+      entradaInput.value;
+
+    calcularTotal();
+
+  }
+);
+
+
+salidaInput.addEventListener(
+  "change",
+  function(){
+
+    calcularTotal();
+
+  }
+);
+
+
+cabanaInput.addEventListener(
+  "change",
+  function(){
+
+    actualizarCapacidad();
+
+    calcularTotal();
+
+  }
+);
+
+
+huespedesInput.addEventListener(
+  "input",
+  function(){
+
+    validarHuespedes();
+
+  }
+);
+
+
+/* ================================
+   ACTUALIZAR CAPACIDAD
+================================ */
+
+function actualizarCapacidad(){
+
+  const id =
+    Number(cabanaInput.value);
+
+  const cabana =
+    cabanas[id];
+
+  huespedesInput.max =
+    cabana.capacidad;
+
+  if(
+    Number(huespedesInput.value)
+    > cabana.capacidad
+  ){
+
+    huespedesInput.value =
+      cabana.capacidad;
+
+  }
+
+}
+
+
+/* ================================
+   VALIDAR HUÉSPEDES
+================================ */
+
+function validarHuespedes(){
+
+  const id =
+    Number(cabanaInput.value);
+
+  const cabana =
+    cabanas[id];
+
+  if(
+    Number(huespedesInput.value)
+    > cabana.capacidad
+  ){
+
+    huespedesInput.value =
+      cabana.capacidad;
+
+  }
+
+}
+
+
+/* ================================
+   CALCULAR NOCHES
+================================ */
+
+function calcularNoches(){
+
+  if(
+    !entradaInput.value ||
+    !salidaInput.value
+  ){
+
+    return 0;
+
+  }
+
+
+  const entrada =
+    new Date(
+      entradaInput.value + "T00:00:00"
+    );
+
+  const salida =
+    new Date(
+      salidaInput.value + "T00:00:00"
+    );
+
+
+  const diferencia =
+    salida - entrada;
+
+
+  return Math.round(
+    diferencia / 86400000
+  );
+
+}
+
+
+/* ================================
+   CALCULAR TOTAL
+================================ */
+
+function calcularTotal(){
+
+  const id =
+    Number(cabanaInput.value);
+
+  const cabana =
+    cabanas[id];
+
+  const noches =
+    calcularNoches();
+
+
+  if(noches <= 0){
+
+    totalPrecio.textContent =
+      "$0";
+
+    detalleNoches.textContent =
+      "Seleccioná fechas válidas.";
+
+    return;
+
+  }
+
+
+  const total =
+    noches * cabana.precio;
+
+
+  totalPrecio.textContent =
+    "$" +
+    total.toLocaleString("es-AR");
+
+
+  detalleNoches.textContent =
+    noches === 1
+    ? "1 noche"
+    : noches + " noches";
+
+}
+
+
+/* ================================
+   VERIFICAR SESIÓN
+================================ */
+
+function verificarSesion(){
+
+  const usuario =
+    localStorage.getItem(
+      "lagunaUsuario"
+    );
+
+
+  if(
+    usuario === "cliente"
+  ){
+
+    loggedBox.classList.add(
+      "show"
+    );
+
+  }
+
+}
+
+verificarSesion();
 
 
 /* ================================
@@ -1682,70 +2353,83 @@ reservaForm.addEventListener(
     e.preventDefault();
 
 
-    const fecha =
-      document.getElementById("fecha").value;
+    const id =
+      Number(cabanaInput.value);
 
-    const personas =
+    const cabana =
+      cabanas[id];
+
+    const huespedes =
       Number(
-        document.getElementById("personas").value
+        huespedesInput.value
       );
 
+    const entrada =
+      entradaInput.value;
 
-    if(!fecha){
-
-      alert("Seleccioná una fecha.");
-
-      return;
-    }
+    const salida =
+      salidaInput.value;
 
 
-    if(personas < 1 || personas > 40){
+    if(!entrada || !salida){
 
       alert(
-        "La cantidad de personas debe estar entre 1 y 40."
+        "Seleccioná las fechas de entrada y salida."
       );
 
       return;
-    }
-
-
-    const servicios = [];
-
-
-    if(
-      document.getElementById("piscina").checked
-    ){
-
-      servicios.push("Piscina");
 
     }
 
 
-    if(
-      document.getElementById("reposera").checked
-    ){
+    const noches =
+      calcularNoches();
 
-      servicios.push("Reposera");
+
+    if(noches <= 0){
+
+      alert(
+        "La fecha de salida debe ser posterior a la fecha de entrada."
+      );
+
+      return;
 
     }
 
 
     if(
-      document.getElementById("gastronomia").checked
+      huespedes < 1 ||
+      huespedes > cabana.capacidad
     ){
 
-      servicios.push("Gastronomía");
+      alert(
+        "La cantidad de huéspedes supera la capacidad de la cabaña."
+      );
+
+      return;
 
     }
+
+
+    const total =
+      noches * cabana.precio;
 
 
     reservaPendiente = {
 
-      fecha:fecha,
+      id:id,
 
-      personas:personas,
+      cabana:cabana.nombre,
 
-      servicios:servicios
+      huespedes:huespedes,
+
+      entrada:entrada,
+
+      salida:salida,
+
+      noches:noches,
+
+      total:total
 
     };
 
@@ -1756,22 +2440,37 @@ reservaForm.addEventListener(
       );
 
 
+    /*
+      SI YA ESTÁ LOGUEADO
+    */
+
     if(
       usuario === "cliente"
     ){
 
       confirmarReserva();
 
-    }else{
-
-      loginBox.classList.add("show");
-
-      loginBox.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-      });
+      return;
 
     }
+
+
+    /*
+      SI NO ESTÁ LOGUEADO
+    */
+
+    loginBox.classList.add(
+      "show"
+    );
+
+
+    loginBox.scrollIntoView({
+
+      behavior:"smooth",
+
+      block:"center"
+
+    });
 
   }
 );
@@ -1786,12 +2485,14 @@ loginButton.addEventListener(
   function(){
 
     const usuario =
-      document.getElementById("usuario")
+      document
+      .getElementById("usuario")
       .value
       .trim();
 
     const password =
-      document.getElementById("password")
+      document
+      .getElementById("password")
       .value;
 
 
@@ -1810,8 +2511,9 @@ loginButton.addEventListener(
       );
 
 
-      loginError.className =
-        "message";
+      loggedBox.classList.add(
+        "show"
+      );
 
 
       confirmarReserva();
@@ -1822,8 +2524,31 @@ loginButton.addEventListener(
       loginError.className =
         "message show error";
 
+
       loginError.textContent =
         "Usuario o contraseña incorrectos.";
+
+    }
+
+  }
+);
+
+
+/* ================================
+   ENTER EN LOGIN
+================================ */
+
+document
+.getElementById("password")
+.addEventListener(
+  "keydown",
+  function(e){
+
+    if(
+      e.key === "Enter"
+    ){
+
+      loginButton.click();
 
     }
 
@@ -1840,24 +2565,45 @@ function confirmarReserva(){
   if(!reservaPendiente){
 
     return;
+
   }
 
 
   const codigo =
-    "BC-" +
+    "CAB-" +
     Math.floor(
-      10000 + Math.random() * 90000
+      10000 +
+      Math.random() * 90000
     );
 
 
-  const fecha =
+  const entrada =
     new Date(
-      reservaPendiente.fecha + "T00:00:00"
+      reservaPendiente.entrada
+      + "T00:00:00"
     );
 
 
-  const fechaFormateada =
-    fecha.toLocaleDateString(
+  const salida =
+    new Date(
+      reservaPendiente.salida
+      + "T00:00:00"
+    );
+
+
+  const entradaFormateada =
+    entrada.toLocaleDateString(
+      "es-AR",
+      {
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+      }
+    );
+
+
+  const salidaFormateada =
+    salida.toLocaleDateString(
       "es-AR",
       {
         day:"2-digit",
@@ -1874,29 +2620,45 @@ function confirmarReserva(){
 
 
   document.getElementById(
-    "reservaFecha"
+    "reservaCabana"
   ).textContent =
-    fechaFormateada;
+    reservaPendiente.cabana;
 
 
   document.getElementById(
-    "reservaPersonas"
+    "reservaEntrada"
   ).textContent =
-    reservaPendiente.personas;
+    entradaFormateada;
 
 
   document.getElementById(
-    "reservaServicios"
+    "reservaSalida"
   ).textContent =
-    reservaPendiente.servicios.length
-    ? reservaPendiente.servicios.join(", ")
-    : "Experiencia general";
+    salidaFormateada;
 
 
-  confirmation.classList.add("show");
+  document.getElementById(
+    "reservaHuespedes"
+  ).textContent =
+    reservaPendiente.huespedes;
 
 
-  loginBox.classList.remove("show");
+  document.getElementById(
+    "reservaTotal"
+  ).textContent =
+    "$" +
+    reservaPendiente.total
+    .toLocaleString("es-AR");
+
+
+  confirmation.classList.add(
+    "show"
+  );
+
+
+  loginBox.classList.remove(
+    "show"
+  );
 
 
   reservaForm.style.display =
@@ -1904,31 +2666,55 @@ function confirmarReserva(){
 
 
   confirmation.scrollIntoView({
+
     behavior:"smooth",
+
     block:"center"
+
   });
 
 
   localStorage.setItem(
-    "ultimaReservaBeachClub",
+    "ultimaReservaCabana",
     JSON.stringify({
 
       codigo:codigo,
 
-      fecha:reservaPendiente.fecha,
+      cabana:
+        reservaPendiente.cabana,
 
-      personas:reservaPendiente.personas,
+      entrada:
+        reservaPendiente.entrada,
 
-      servicios:reservaPendiente.servicios
+      salida:
+        reservaPendiente.salida,
+
+      huespedes:
+        reservaPendiente.huespedes,
+
+      noches:
+        reservaPendiente.noches,
+
+      total:
+        reservaPendiente.total
 
     })
   );
 
 
-  reservaPendiente = null;
+  reservaPendiente =
+    null;
 
 }
 
+
+/* ================================
+   INICIO
+================================ */
+
+actualizarCapacidad();
+
+calcularTotal();
 
 </script>
 
