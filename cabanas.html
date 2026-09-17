@@ -3,477 +3,1934 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laguna Experience · Cabañas</title>
+
+<title>Beach Club · Laguna Experience</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --ink:#182823;
-    --ink-soft:#4b5f57;
-    --sand:#f3ead6;
-    --sand-deep:#e7d9b8;
-    --paper:#fffdf8;
-    --lagoon:#0e6b5c;
-    --lagoon-deep:#0a4c42;
-    --lagoon-light:#e4f2ee;
-    --coral:#d9633b;
-    --coral-light:#fbe6dc;
-    --gold:#c9971f;
-    --line:#e2d9c4;
-    --radius:14px;
-    --shadow:0 6px 20px rgba(20,40,35,.08);
+
+:root{
+  --ink:#122733;
+  --ink-soft:#4d6875;
+
+  --sand:#fdf3e3;
+  --paper:#fffdf7;
+
+  --turq:#0e879a;
+  --turq-deep:#0a5e6c;
+  --turq-light:#e1f2f4;
+
+  --sun:#e8963a;
+  --sun-light:#fdf0dd;
+
+  --coral:#d9603c;
+  --coral-light:#fbe4da;
+
+  --line:#ecdfc4;
+
+  --ok:#1c7a45;
+
+  --radius:20px;
+
+  font-family:'Inter',sans-serif;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--sand);
+  color:var(--ink);
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+  background:
+    linear-gradient(
+      135deg,
+      var(--turq-deep),
+      var(--turq) 70%,
+      var(--sun) 130%
+    );
+
+  color:white;
+
+  padding:30px 6vw 80px;
+
+  position:relative;
+  overflow:hidden;
+}
+
+header::before{
+  content:"";
+
+  position:absolute;
+
+  width:350px;
+  height:350px;
+
+  border-radius:50%;
+
+  right:-130px;
+  top:-160px;
+
+  background:rgba(255,255,255,.08);
+}
+
+header::after{
+  content:"";
+
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  border-radius:50%;
+
+  left:-120px;
+  bottom:-150px;
+
+  background:rgba(255,255,255,.06);
+}
+
+.eyebrow{
+  position:relative;
+  z-index:2;
+
+  font-family:'IBM Plex Mono',monospace;
+
+  font-size:12px;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  opacity:.8;
+}
+
+header h1{
+  position:relative;
+  z-index:2;
+
+  font-family:'Fraunces',serif;
+
+  font-size:clamp(40px,6vw,72px);
+
+  font-weight:600;
+
+  margin:12px 0 8px;
+}
+
+header p{
+  position:relative;
+  z-index:2;
+
+  max-width:700px;
+
+  margin:0;
+
+  font-size:16px;
+
+  line-height:1.7;
+
+  opacity:.92;
+}
+
+
+/* ================= MAIN ================= */
+
+main{
+  max-width:1150px;
+
+  margin:-38px auto 70px;
+
+  padding:0 24px;
+
+  position:relative;
+  z-index:5;
+}
+
+
+/* ================= HERO CARD ================= */
+
+.hero-card{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:28px;
+
+  padding:32px;
+
+  box-shadow:
+    0 20px 45px -30px rgba(20,40,45,.35);
+
+  margin-bottom:24px;
+}
+
+.hero-card h2{
+  font-family:'Fraunces',serif;
+
+  color:var(--turq-deep);
+
+  font-size:30px;
+
+  margin:0 0 10px;
+}
+
+.hero-card p{
+  color:var(--ink-soft);
+
+  line-height:1.7;
+
+  margin:0;
+
+  max-width:850px;
+}
+
+
+/* ================= STATS ================= */
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:14px;
+
+  margin-bottom:26px;
+}
+
+.stat{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:20px;
+
+  text-align:center;
+
+  box-shadow:
+    0 8px 25px -18px rgba(20,40,45,.3);
+}
+
+.stat-number{
+  font-family:'Fraunces',serif;
+
+  font-size:32px;
+
+  color:var(--turq-deep);
+
+  font-weight:700;
+}
+
+.stat-label{
+  margin-top:4px;
+
+  color:var(--ink-soft);
+
+  font-size:12px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:24px;
+
+  padding:30px;
+
+  margin-bottom:24px;
+
+  box-shadow:
+    0 10px 28px -22px rgba(20,40,45,.3);
+}
+
+.section-title{
+  margin:0;
+
+  font-family:'Fraunces',serif;
+
+  font-size:27px;
+
+  color:var(--turq-deep);
+}
+
+.section-description{
+  margin:7px 0 24px;
+
+  color:var(--ink-soft);
+
+  font-size:14px;
+
+  line-height:1.6;
+}
+
+
+/* ================= EXPERIENCE CARDS ================= */
+
+.cards{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:14px;
+}
+
+.card{
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:20px;
+
+  background:var(--turq-light);
+
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+
+  border-color:var(--turq);
+
+  box-shadow:
+    0 12px 25px -18px rgba(14,135,154,.4);
+}
+
+.card.sun{
+  background:var(--sun-light);
+}
+
+.card.coral{
+  background:var(--coral-light);
+}
+
+.card h3{
+  font-family:'Fraunces',serif;
+
+  color:var(--turq-deep);
+
+  font-size:19px;
+
+  margin:0 0 8px;
+}
+
+.card p{
+  margin:0;
+
+  color:var(--ink-soft);
+
+  font-size:13px;
+
+  line-height:1.6;
+}
+
+.icon{
+  font-size:28px;
+
+  margin-bottom:10px;
+}
+
+
+/* ================= INFO GRID ================= */
+
+.info-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:14px;
+}
+
+.info{
+  border:1px solid var(--line);
+
+  border-radius:16px;
+
+  padding:18px;
+
+  background:white;
+}
+
+.info strong{
+  display:block;
+
+  color:var(--turq-deep);
+
+  font-family:'Fraunces',serif;
+
+  font-size:19px;
+
+  margin-bottom:6px;
+}
+
+.info span{
+  color:var(--ink-soft);
+
+  font-size:13px;
+
+  line-height:1.5;
+}
+
+
+/* ================= GASTRONOMY ================= */
+
+.food-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:12px;
+}
+
+.food{
+  background:white;
+
+  border:1px solid var(--line);
+
+  border-radius:15px;
+
+  padding:17px;
+}
+
+.food h3{
+  font-family:'Fraunces',serif;
+
+  color:var(--turq-deep);
+
+  font-size:16px;
+
+  margin:0 0 8px;
+}
+
+.food .price{
+  color:var(--turq);
+
+  font-weight:700;
+
+  font-size:14px;
+}
+
+
+/* ================= RESERVATION ================= */
+
+.reservation{
+  background:
+    linear-gradient(
+      135deg,
+      #e1f2f4,
+      #fffdf7
+    );
+
+  border:1px solid #cde5e8;
+
+  border-radius:24px;
+
+  padding:30px;
+}
+
+.reservation h2{
+  font-family:'Fraunces',serif;
+
+  color:var(--turq-deep);
+
+  font-size:30px;
+
+  margin:0 0 7px;
+}
+
+.reservation > p{
+  color:var(--ink-soft);
+
+  font-size:14px;
+
+  margin:0 0 24px;
+}
+
+
+/* ================= FORM ================= */
+
+.form-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:16px;
+}
+
+.form-group label{
+  display:block;
+
+  color:var(--turq-deep);
+
+  font-size:12.5px;
+
+  font-weight:700;
+
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+
+  padding:12px 13px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  background:white;
+
+  color:var(--ink);
+
+  font-family:inherit;
+
+  font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  outline:2px solid var(--turq);
+
+  outline-offset:1px;
+}
+
+
+/* ================= CHECKBOXES ================= */
+
+.options{
+  display:flex;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+}
+
+.option{
+  flex:1;
+
+  min-width:180px;
+}
+
+.option input{
+  display:none;
+}
+
+.option label{
+  display:block;
+
+  padding:15px;
+
+  background:white;
+
+  border:1px solid var(--line);
+
+  border-radius:13px;
+
+  cursor:pointer;
+
+  transition:.15s;
+}
+
+.option label strong{
+  display:block;
+
+  color:var(--turq-deep);
+
+  margin-bottom:4px;
+}
+
+.option label span{
+  font-size:12px;
+
+  color:var(--ink-soft);
+}
+
+.option input:checked + label{
+  border-color:var(--turq);
+
+  background:var(--turq-light);
+
+  box-shadow:
+    0 0 0 2px rgba(14,135,154,.1);
+}
+
+
+/* ================= BUTTON ================= */
+
+button{
+  border:none;
+
+  border-radius:12px;
+
+  padding:13px 22px;
+
+  font-family:'Inter',sans-serif;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+button.primary{
+  background:var(--turq);
+
+  color:white;
+}
+
+button.primary:hover{
+  background:var(--turq-deep);
+
+  transform:translateY(-1px);
+}
+
+.reserve-button{
+  margin-top:20px;
+
+  width:100%;
+
+  font-size:15px;
+
+  padding:15px;
+}
+
+
+/* ================= LOGIN ================= */
+
+.login-box{
+  display:none;
+
+  margin-top:20px;
+
+  padding:20px;
+
+  background:var(--sun-light);
+
+  border:1px solid #f0d6ad;
+
+  border-radius:16px;
+}
+
+.login-box.show{
+  display:block;
+}
+
+.login-box h3{
+  font-family:'Fraunces',serif;
+
+  color:#8b5b18;
+
+  margin:0 0 6px;
+
+  font-size:21px;
+}
+
+.login-box p{
+  color:var(--ink-soft);
+
+  font-size:13px;
+
+  margin:0 0 16px;
+}
+
+.login-grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr auto;
+
+  gap:12px;
+
+  align-items:end;
+}
+
+.login-grid label{
+  display:block;
+
+  color:#8b5b18;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  margin-bottom:5px;
+}
+
+.login-grid input{
+  width:100%;
+
+  padding:11px;
+
+  border:1px solid #e4c999;
+
+  border-radius:9px;
+
+  font-family:inherit;
+}
+
+
+/* ================= CONFIRMATION ================= */
+
+.confirmation{
+  display:none;
+
+  margin-top:20px;
+
+  padding:24px;
+
+  border-radius:18px;
+
+  background:#dff3e6;
+
+  border:1px solid #c1e2cd;
+
+  color:var(--ok);
+}
+
+.confirmation.show{
+  display:block;
+}
+
+.confirmation h3{
+  font-family:'Fraunces',serif;
+
+  font-size:24px;
+
+  margin:0 0 8px;
+}
+
+.confirmation p{
+  margin:6px 0;
+
+  font-size:14px;
+}
+
+
+/* ================= BEFORE ================= */
+
+.before-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:14px;
+}
+
+.before{
+  padding:18px;
+
+  border-radius:16px;
+
+  background:var(--sand);
+
+  border:1px solid var(--line);
+}
+
+.before h3{
+  font-family:'Fraunces',serif;
+
+  color:var(--turq-deep);
+
+  font-size:18px;
+
+  margin:0 0 7px;
+}
+
+.before p{
+  color:var(--ink-soft);
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  margin:0;
+}
+
+
+/* ================= MESSAGE ================= */
+
+.message{
+  display:none;
+
+  margin-top:14px;
+
+  padding:12px 14px;
+
+  border-radius:10px;
+
+  font-size:13px;
+}
+
+.message.show{
+  display:block;
+}
+
+.message.error{
+  background:var(--coral-light);
+
+  border:1px solid #efc4b8;
+
+  color:#a8391c;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+
+  color:var(--ink-soft);
+
+  font-family:'IBM Plex Mono',monospace;
+
+  font-size:11px;
+
+  padding:25px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+  .cards{
+    grid-template-columns:
+      repeat(2,1fr);
   }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    background:var(--sand);
-    color:var(--ink);
-    line-height:1.5;
+
+  .food-grid{
+    grid-template-columns:
+      repeat(3,1fr);
   }
+
+  .before-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
   header{
-    background:linear-gradient(120deg,var(--lagoon-deep),var(--lagoon) 70%);
-    color:#fff;
-    padding:26px 32px 60px;
-    position:relative;
-    overflow:hidden;
+    padding:25px 20px 70px;
   }
-  header::after{
-    content:"";
-    position:absolute; right:-40px; bottom:-60px;
-    width:220px;height:220px;border-radius:50%;
-    background:rgba(255,255,255,.06);
+
+  main{
+    padding:0 16px;
   }
-  .eyebrow{
-    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-    opacity:.8; margin:0 0 6px;
+
+  .hero-card,
+  .section,
+  .reservation{
+    padding:22px;
   }
-  h1{
-    font-family:Georgia,'Times New Roman',serif;
-    font-weight:600; font-size:32px; margin:0;
+
+  .stats{
+    grid-template-columns:
+      repeat(3,1fr);
   }
-  .sub{opacity:.85; font-size:14.5px; margin-top:6px; max-width:560px;}
-  .wrap{
-    max-width:1100px; margin:40px auto 60px; padding:0 24px;
+
+  .stat{
+    padding:15px 8px;
   }
-  nav.tabs{
-    display:flex; gap:8px; background:var(--paper);
-    border-radius:999px; padding:6px; box-shadow:var(--shadow);
-    margin-bottom:24px; flex-wrap:wrap;
+
+  .stat-number{
+    font-size:25px;
   }
-  nav.tabs button{
-    border:none; background:transparent; padding:10px 18px;
-    border-radius:999px; font-size:14px; font-weight:600;
-    color:var(--ink-soft); cursor:pointer; transition:.15s;
+
+  .stat-label{
+    font-size:10px;
   }
-  nav.tabs button.active{background:var(--lagoon); color:#fff;}
-  nav.tabs button:hover:not(.active){background:var(--lagoon-light);}
-  section.panel{display:none;}
-  section.panel.active{display:block; animation:fade .25s ease;}
-  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
-  .card{
-    background:var(--paper); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:22px 24px; margin-bottom:18px;
-    border:1px solid var(--line);
+
+  .cards{
+    grid-template-columns:1fr;
   }
-  .card h2{margin:0 0 4px; font-family:Georgia,serif; font-size:20px;}
-  .card p.hint{margin:0 0 16px; color:var(--ink-soft); font-size:13.5px;}
-  .grid-cabins{
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:14px;
+
+  .info-grid{
+    grid-template-columns:1fr;
   }
-  .cabin{
-    border:1px solid var(--line); border-radius:12px; padding:16px;
-    background:#fff; position:relative;
+
+  .food-grid{
+    grid-template-columns:
+      repeat(2,1fr);
   }
-  .cabin h3{margin:0 0 4px; font-size:16px;}
-  .cabin .meta{font-size:12.5px; color:var(--ink-soft); margin-bottom:10px;}
-  .badge{
-    display:inline-block; font-size:11px; font-weight:700;
-    padding:4px 10px; border-radius:999px; letter-spacing:.03em;
-    text-transform:uppercase;
+
+  .before-grid{
+    grid-template-columns:1fr;
   }
-  .b-disponible{background:#dff3e6; color:#1c7a45;}
-  .b-reservada{background:#fdf1d6; color:#96700c;}
-  .b-ocupada{background:var(--coral-light); color:var(--coral);}
-  .b-mantenimiento{background:#e7e3ea; color:#5b5468;}
-  label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-soft); margin:12px 0 4px;}
-  select, input{
-    width:100%; padding:9px 11px; border-radius:8px; border:1px solid var(--line);
-    font-size:14px; font-family:inherit; background:#fff;
+
+  .form-grid{
+    grid-template-columns:1fr;
   }
-  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .row3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
-  button.action{
-    margin-top:16px; background:var(--lagoon); color:#fff; border:none;
-    padding:11px 20px; border-radius:9px; font-size:14px; font-weight:700;
-    cursor:pointer; transition:.15s;
+
+  .login-grid{
+    grid-template-columns:1fr;
   }
-  button.action:hover{background:var(--lagoon-deep);}
-  button.action.ghost{background:transparent; border:1.5px solid var(--lagoon); color:var(--lagoon);}
-  button.action.ghost:hover{background:var(--lagoon-light);}
-  button.action.danger{background:var(--coral);}
-  button.action.danger:hover{background:#b74d2c;}
-  button.action:disabled{background:#c9c4b6; cursor:not-allowed;}
-  .msg{
-    padding:11px 14px; border-radius:9px; font-size:13.5px; margin-top:14px;
-    display:none;
+
+}
+
+@media(max-width:450px){
+
+  .stats{
+    grid-template-columns:1fr;
   }
-  .msg.show{display:block;}
-  .msg.ok{background:#dff3e6; color:#1c7a45;}
-  .msg.err{background:var(--coral-light); color:#a8391c;}
-  table{width:100%; border-collapse:collapse; font-size:13.5px;}
-  th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line);}
-  th{color:var(--ink-soft); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em;}
-  .pill-band{
-    display:inline-flex; align-items:center; gap:6px; background:var(--lagoon-light);
-    color:var(--lagoon-deep); padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700;
+
+  .food-grid{
+    grid-template-columns:1fr;
   }
-  .pill-band .dot{width:7px;height:7px;border-radius:50%; background:var(--lagoon);}
-  .empty{color:var(--ink-soft); font-size:13.5px; font-style:italic;}
-  .stat-line{display:flex; gap:22px; flex-wrap:wrap; margin-top:4px;}
-  .stat{font-size:13px; color:var(--ink-soft);}
-  .stat b{color:var(--ink); font-size:16px; display:block;}
-  footer{text-align:center; color:var(--ink-soft); font-size:12px; padding:30px 0 10px;}
+
+  header h1{
+    font-size:42px;
+  }
+
+}
+
 </style>
 </head>
+
 <body>
 
+
 <header>
-  <p class="eyebrow">Laguna Experience · Sistema interno</p>
-  <h1>Gestión de Cabañas</h1>
-  <p class="sub">Disponibilidad, reservas, check-in / check-out y control de acceso por pulsera.</p>
+
+  <div class="eyebrow">
+    Laguna Experience · Experiencia
+  </div>
+
+  <h1>Beach Club</h1>
+
+  <p>
+    Un espacio junto a la laguna para relajarte, disfrutar de la piscina,
+    descansar en una reposera y acompañar tu experiencia con gastronomía.
+  </p>
+
 </header>
 
-<div class="wrap">
-  <nav class="tabs">
-    <button data-tab="listado" class="active">Listado</button>
-    <button data-tab="reservar">Nueva reserva</button>
-    <button data-tab="estadia">Check-in / Check-out</button>
-    <button data-tab="reservas">Reservas</button>
-  </nav>
 
-  <!-- LISTADO -->
-  <section class="panel active" id="tab-listado">
-    <div class="card">
-      <h2>Cabañas del complejo</h2>
-      <p class="hint">Estado actualizado en tiempo real según reservas, check-ins y mantenimiento.</p>
-      <div class="grid-cabins" id="cabinGrid"></div>
-    </div>
+<main>
+
+
+  <!-- ================= PRESENTACIÓN ================= -->
+
+  <section class="hero-card">
+
+    <h2>Disfrutá tu día junto a la laguna</h2>
+
+    <p>
+      El Beach Club combina descanso, piscina y gastronomía en un mismo
+      espacio. Reservá tu lugar, disfrutá de las instalaciones y viví
+      una experiencia pensada para pasar el día sin preocuparte por la
+      organización.
+    </p>
+
   </section>
 
-  <!-- RESERVAR -->
-  <section class="panel" id="tab-reservar">
-    <div class="card">
-      <h2>Nueva reserva</h2>
-      <p class="hint">Se validan disponibilidad, capacidad, mantenimiento y superposición de fechas.</p>
-      <label>Cabaña</label>
-      <select id="rCabin"></select>
-      <div class="row2">
-        <div>
-          <label>Visitante (nombre)</label>
-          <input id="rVisitante" placeholder="Nombre y apellido">
-        </div>
-        <div>
-          <label>Cantidad de huéspedes</label>
-          <input id="rHuespedes" type="number" min="1" value="2">
-        </div>
+
+  <!-- ================= ESTADÍSTICAS ================= -->
+
+  <section class="stats">
+
+    <div class="stat">
+
+      <div class="stat-number">
+        40
       </div>
-      <div class="row2">
-        <div>
-          <label>Fecha de entrada</label>
-          <input id="rEntrada" type="date">
-        </div>
-        <div>
-          <label>Fecha de salida</label>
-          <input id="rSalida" type="date">
-        </div>
+
+      <div class="stat-label">
+        Capacidad del club
       </div>
-      <button class="action" onclick="crearReserva()">Verificar y reservar</button>
-      <button class="action ghost" onclick="pagarUltimaReserva()" id="btnPagar" disabled>Registrar pago</button>
-      <div class="msg" id="msgReserva"></div>
-    </div>
-  </section>
 
-  <!-- ESTADIA -->
-  <section class="panel" id="tab-estadia">
-    <div class="card">
-      <h2>Check-in</h2>
-      <p class="hint">Requiere una reserva confirmada (y pagada) para asignar pulsera y habilitar el acceso.</p>
-      <label>Reserva confirmada</label>
-      <select id="ciReserva"></select>
-      <button class="action" onclick="hacerCheckin()">Realizar check-in</button>
-      <div class="msg" id="msgCheckin"></div>
     </div>
 
-    <div class="card">
-      <h2>Registrar consumo</h2>
-      <p class="hint">Solo disponible para huéspedes con check-in activo.</p>
-      <label>Reserva en estadía</label>
-      <select id="coReservaConsumo"></select>
-      <div class="row2">
-        <div>
-          <label>Descripción</label>
-          <input id="coDesc" placeholder="Ej: Almuerzo, minibar...">
-        </div>
-        <div>
-          <label>Monto ($)</label>
-          <input id="coMonto" type="number" min="0" value="0">
-        </div>
+
+    <div class="stat">
+
+      <div class="stat-number">
+        15
       </div>
-      <button class="action ghost" onclick="registrarConsumo()">Agregar consumo</button>
-      <div class="msg" id="msgConsumo"></div>
+
+      <div class="stat-label">
+        Capacidad piscina
+      </div>
+
     </div>
 
-    <div class="card">
-      <h2>Check-out</h2>
-      <p class="hint">Deshabilita el acceso de la pulsera y calcula el saldo final de la estadía.</p>
-      <label>Reserva en estadía</label>
-      <select id="coReserva"></select>
-      <button class="action danger" onclick="hacerCheckout()">Realizar check-out</button>
-      <div class="msg" id="msgCheckout"></div>
+
+    <div class="stat">
+
+      <div class="stat-number">
+        12
+      </div>
+
+      <div class="stat-label">
+        Reposeras
+      </div>
+
     </div>
+
   </section>
 
-  <!-- RESERVAS -->
-  <section class="panel" id="tab-reservas">
-    <div class="card">
-      <h2>Todas las reservas</h2>
-      <table id="tablaReservas">
-        <thead><tr>
-          <th>Cabaña</th><th>Visitante</th><th>Fechas</th><th>Huéspedes</th>
-          <th>Estado</th><th>Pago</th><th>Pulsera</th><th>Acceso</th><th>Consumos</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
-</div>
 
-<footer>Laguna Experience — Módulo Cabañas · Datos simulados en memoria</footer>
+  <!-- ================= EXPERIENCIA ================= -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      ¿Qué podés disfrutar?
+    </h2>
+
+    <p class="section-description">
+      Todo lo necesario para pasar un momento de descanso y diversión
+      dentro de Laguna Experience.
+    </p>
+
+
+    <div class="cards">
+
+
+      <div class="card">
+
+        <div class="icon">
+          🏊
+        </div>
+
+        <h3>Piscina</h3>
+
+        <p>
+          Refrescate y disfrutá de la piscina durante tu visita al
+          Beach Club.
+        </p>
+
+      </div>
+
+
+      <div class="card sun">
+
+        <div class="icon">
+          🪑
+        </div>
+
+        <h3>Reposera</h3>
+
+        <p>
+          Contás con espacios de descanso para relajarte junto a la
+          piscina y la laguna.
+        </p>
+
+      </div>
+
+
+      <div class="card coral">
+
+        <div class="icon">
+          🍽️
+        </div>
+
+        <h3>Gastronomía</h3>
+
+        <p>
+          Elegí entre distintas opciones de comidas y bebidas para
+          acompañar tu experiencia.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">
+          🌴
+        </div>
+
+        <h3>Relax</h3>
+
+        <p>
+          Un espacio pensado para desconectarte y disfrutar de un día
+          tranquilo junto al agua.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CÓMO FUNCIONA ================= -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      ¿Cómo funciona?
+    </h2>
+
+    <p class="section-description">
+      Tu reserva organiza el acceso y los servicios disponibles durante
+      tu visita.
+    </p>
+
+
+    <div class="info-grid">
+
+
+      <div class="info">
+
+        <strong>1. Reservá</strong>
+
+        <span>
+          Elegí la fecha y la cantidad de personas con las que querés
+          disfrutar del Beach Club.
+        </span>
+
+      </div>
+
+
+      <div class="info">
+
+        <strong>2. Ingresá</strong>
+
+        <span>
+          Al llegar, tu reserva permite identificar tu acceso al
+          Beach Club.
+        </span>
+
+      </div>
+
+
+      <div class="info">
+
+        <strong>3. Disfrutá</strong>
+
+        <span>
+          Podés utilizar los espacios disponibles, disfrutar de la
+          piscina y relajarte en el club.
+        </span>
+
+      </div>
+
+
+      <div class="info">
+
+        <strong>4. Consumí</strong>
+
+        <span>
+          Tus consumos pueden asociarse a tu cuenta durante la visita
+          para facilitar el pago al finalizar.
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SERVICIOS ================= -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      Servicios disponibles
+    </h2>
+
+    <p class="section-description">
+      Estas son algunas de las opciones disponibles dentro del
+      Beach Club.
+    </p>
+
+
+    <div class="info-grid">
+
+
+      <div class="info">
+
+        <strong>🏊 Piscina</strong>
+
+        <span>
+          Capacidad máxima de 15 personas.
+        </span>
+
+      </div>
+
+
+      <div class="info">
+
+        <strong>🪑 Reposeras</strong>
+
+        <span>
+          El espacio cuenta con 12 reposeras disponibles.
+        </span>
+
+      </div>
+
+
+      <div class="info">
+
+        <strong>🍽️ Gastronomía</strong>
+
+        <span>
+          Comidas y bebidas disponibles durante tu experiencia.
+        </span>
+
+      </div>
+
+
+      <div class="info">
+
+        <strong>🎟️ Pulsera</strong>
+
+        <span>
+          Durante el ingreso se utiliza una pulsera para identificar
+          tu acceso y asociar los servicios.
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= GASTRONOMÍA ================= -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      Gastronomía
+    </h2>
+
+    <p class="section-description">
+      Algunas de las opciones disponibles para acompañar tu visita.
+    </p>
+
+
+    <div class="food-grid">
+
+
+      <div class="food">
+
+        <h3>Agua mineral</h3>
+
+        <div class="price">
+          $2.500
+        </div>
+
+      </div>
+
+
+      <div class="food">
+
+        <h3>Tabla de picada</h3>
+
+        <div class="price">
+          $14.500
+        </div>
+
+      </div>
+
+
+      <div class="food">
+
+        <h3>Smoothie tropical</h3>
+
+        <div class="price">
+          $4.800
+        </div>
+
+      </div>
+
+
+      <div class="food">
+
+        <h3>Ensalada Laguna</h3>
+
+        <div class="price">
+          $9.800
+        </div>
+
+      </div>
+
+
+      <div class="food">
+
+        <h3>Bebidas</h3>
+
+        <div class="price">
+          Disponibles en el club
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= RESERVA ================= -->
+
+  <section class="reservation" id="reserva">
+
+    <h2>
+      Reservá tu experiencia
+    </h2>
+
+    <p>
+      Completá los datos para reservar tu lugar en el Beach Club.
+    </p>
+
+
+    <form id="reservaForm">
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group">
+
+          <label for="fecha">
+            Fecha
+          </label>
+
+          <input
+            type="date"
+            id="fecha"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="personas">
+            Cantidad de personas
+          </label>
+
+          <input
+            type="number"
+            id="personas"
+            min="1"
+            max="40"
+            value="1"
+            required
+          >
+
+        </div>
+
+
+      </div>
+
+
+      <div style="margin-top:20px;">
+
+        <label style="
+          display:block;
+          color:var(--turq-deep);
+          font-size:12.5px;
+          font-weight:700;
+          margin-bottom:8px;
+        ">
+          ¿Qué querés disfrutar?
+        </label>
+
+
+        <div class="options">
+
+
+          <div class="option">
+
+            <input
+              type="checkbox"
+              id="piscina"
+              checked
+            >
+
+            <label for="piscina">
+
+              <strong>🏊 Piscina</strong>
+
+              <span>
+                Acceso a la piscina durante tu visita.
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <div class="option">
+
+            <input
+              type="checkbox"
+              id="reposera"
+              checked
+            >
+
+            <label for="reposera">
+
+              <strong>🪑 Reposera</strong>
+
+              <span>
+                Solicitar espacio de descanso.
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <div class="option">
+
+            <input
+              type="checkbox"
+              id="gastronomia"
+            >
+
+            <label for="gastronomia">
+
+              <strong>🍽️ Gastronomía</strong>
+
+              <span>
+                Consultar opciones disponibles.
+              </span>
+
+            </label>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="primary reserve-button"
+      >
+        Reservar Beach Club
+      </button>
+
+
+    </form>
+
+
+    <!-- ================= LOGIN ================= -->
+
+    <div class="login-box" id="loginBox">
+
+      <h3>
+        Iniciá sesión para continuar
+      </h3>
+
+      <p>
+        Necesitamos identificarte antes de confirmar tu reserva.
+      </p>
+
+
+      <div class="login-grid">
+
+
+        <div>
+
+          <label for="usuario">
+            Usuario
+          </label>
+
+          <input
+            type="text"
+            id="usuario"
+            placeholder="Usuario"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label for="password">
+            Contraseña
+          </label>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+          >
+
+        </div>
+
+
+        <button
+          type="button"
+          class="primary"
+          id="loginButton"
+        >
+          Iniciar sesión
+        </button>
+
+
+      </div>
+
+
+      <div
+        class="message"
+        id="loginError">
+      </div>
+
+    </div>
+
+
+    <!-- ================= CONFIRMACIÓN ================= -->
+
+    <div
+      class="confirmation"
+      id="confirmation"
+    >
+
+      <h3>
+        ✓ Reserva confirmada
+      </h3>
+
+      <p>
+        Tu reserva para el Beach Club fue registrada correctamente.
+      </p>
+
+      <p>
+        <strong>Reserva:</strong>
+        <span id="reservaId"></span>
+      </p>
+
+      <p>
+        <strong>Fecha:</strong>
+        <span id="reservaFecha"></span>
+      </p>
+
+      <p>
+        <strong>Personas:</strong>
+        <span id="reservaPersonas"></span>
+      </p>
+
+      <p>
+        <strong>Servicios:</strong>
+        <span id="reservaServicios"></span>
+      </p>
+
+      <p style="margin-top:14px;">
+        Al ingresar, recibirás la identificación correspondiente
+        para utilizar los servicios del Beach Club.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ANTES DE VENIR ================= -->
+
+  <section class="section">
+
+    <h2 class="section-title">
+      Antes de venir
+    </h2>
+
+    <p class="section-description">
+      Algunos datos importantes para disfrutar mejor tu experiencia.
+    </p>
+
+
+    <div class="before-grid">
+
+
+      <div class="before">
+
+        <h3>🎟️ Acceso</h3>
+
+        <p>
+          Tené disponible tu reserva al momento de ingresar.
+          El sistema utilizará tu identificación para gestionar
+          el acceso.
+        </p>
+
+      </div>
+
+
+      <div class="before">
+
+        <h3>🏊 Piscina</h3>
+
+        <p>
+          La piscina cuenta con una capacidad máxima de 15 personas
+          para mantener una experiencia cómoda.
+        </p>
+
+      </div>
+
+
+      <div class="before">
+
+        <h3>🪑 Reposeras</h3>
+
+        <p>
+          La disponibilidad de reposeras es limitada y se organiza
+          según las reservas y disponibilidad del momento.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+  Laguna Experience — Beach Club
+</footer>
+
 
 <script>
-/* ======================= DATOS SIMULADOS ======================= */
-let cabanas = [
-  {id:1, nombre:"Cabaña Ceibo", capacidad:2, precio:38000, mantenimiento:false},
-  {id:2, nombre:"Cabaña Timbó", capacidad:4, precio:52000, mantenimiento:false},
-  {id:3, nombre:"Cabaña Sauce", capacidad:6, precio:71000, mantenimiento:false},
-  {id:4, nombre:"Cabaña Yatay", capacidad:3, precio:45000, mantenimiento:true},
-  {id:5, nombre:"Cabaña Curupí", capacidad:5, precio:63000, mantenimiento:false},
-];
 
-let reservas = []; // {id, cabinId, visitante, huespedes, entrada, salida, estado, pago, pulsera, acceso, consumos:[]}
-let nextReservaId = 1;
-let ultimaReservaId = null;
 
-/* ======================= UTILIDADES ======================= */
-function fmt(n){ return "$" + Number(n).toLocaleString("es-AR"); }
-function noches(entrada, salida){
-  const d1 = new Date(entrada), d2 = new Date(salida);
-  return Math.round((d2 - d1) / 86400000);
-}
-function overlap(aStart, aEnd, bStart, bEnd){
-  return (new Date(aStart) < new Date(bEnd)) && (new Date(bStart) < new Date(aEnd));
-}
-function reservaActivaOFutura(r){
-  return r.estado !== "checkout";
-}
-function estadoCabana(cabinId){
-  const cab = cabanas.find(c=>c.id===cabinId);
-  if(cab.mantenimiento) return "mantenimiento";
-  const rs = reservas.filter(r=>r.cabinId===cabinId && reservaActivaOFutura(r));
-  if(rs.some(r=>r.estado==="checkin")) return "ocupada";
-  if(rs.some(r=>r.estado==="confirmada")) return "reservada";
-  return "disponible";
-}
+/* ================================
+   ELEMENTOS
+================================ */
 
-/* ======================= RENDER: LISTADO ======================= */
-function renderCabinGrid(){
-  const grid = document.getElementById("cabinGrid");
-  grid.innerHTML = "";
-  cabanas.forEach(c=>{
-    const estado = estadoCabana(c.id);
-    const div = document.createElement("div");
-    div.className = "cabin";
-    div.innerHTML = `
-      <span class="badge b-${estado}">${estado}</span>
-      <h3 style="margin-top:10px">${c.nombre}</h3>
-      <div class="meta">Capacidad: ${c.capacidad} huéspedes · ${fmt(c.precio)}/noche</div>
-    `;
-    grid.appendChild(div);
-  });
-}
+const reservaForm =
+  document.getElementById("reservaForm");
 
-function renderSelectCabanas(){
-  const sel = document.getElementById("rCabin");
-  sel.innerHTML = cabanas.map(c=>`<option value="${c.id}">${c.nombre} (cap. ${c.capacidad})</option>`).join("");
-}
+const loginBox =
+  document.getElementById("loginBox");
 
-/* ======================= RESERVAR ======================= */
-function crearReserva(){
-  const msg = document.getElementById("msgReserva");
-  msg.className = "msg";
-  const cabinId = Number(document.getElementById("rCabin").value);
-  const visitante = document.getElementById("rVisitante").value.trim();
-  const huespedes = Number(document.getElementById("rHuespedes").value);
-  const entrada = document.getElementById("rEntrada").value;
-  const salida = document.getElementById("rSalida").value;
-  const cab = cabanas.find(c=>c.id===cabinId);
+const loginButton =
+  document.getElementById("loginButton");
 
-  if(!visitante){ return showErr(msg,"Ingresá el nombre del visitante."); }
-  if(!entrada || !salida || new Date(salida) <= new Date(entrada)){
-    return showErr(msg,"Las fechas de entrada y salida no son válidas.");
+const confirmation =
+  document.getElementById("confirmation");
+
+const loginError =
+  document.getElementById("loginError");
+
+
+let reservaPendiente = null;
+
+
+/* ================================
+   FECHA MÍNIMA
+================================ */
+
+const fechaInput =
+  document.getElementById("fecha");
+
+const hoy =
+  new Date();
+
+const fechaHoy =
+  hoy.toISOString().split("T")[0];
+
+fechaInput.min = fechaHoy;
+
+
+/* ================================
+   RESERVA
+================================ */
+
+reservaForm.addEventListener(
+  "submit",
+  function(e){
+
+    e.preventDefault();
+
+
+    const fecha =
+      document.getElementById("fecha").value;
+
+    const personas =
+      Number(
+        document.getElementById("personas").value
+      );
+
+
+    if(!fecha){
+
+      alert("Seleccioná una fecha.");
+
+      return;
+    }
+
+
+    if(personas < 1 || personas > 40){
+
+      alert(
+        "La cantidad de personas debe estar entre 1 y 40."
+      );
+
+      return;
+    }
+
+
+    const servicios = [];
+
+
+    if(
+      document.getElementById("piscina").checked
+    ){
+
+      servicios.push("Piscina");
+
+    }
+
+
+    if(
+      document.getElementById("reposera").checked
+    ){
+
+      servicios.push("Reposera");
+
+    }
+
+
+    if(
+      document.getElementById("gastronomia").checked
+    ){
+
+      servicios.push("Gastronomía");
+
+    }
+
+
+    reservaPendiente = {
+
+      fecha:fecha,
+
+      personas:personas,
+
+      servicios:servicios
+
+    };
+
+
+    const usuario =
+      localStorage.getItem(
+        "lagunaUsuario"
+      );
+
+
+    if(
+      usuario === "cliente"
+    ){
+
+      confirmarReserva();
+
+    }else{
+
+      loginBox.classList.add("show");
+
+      loginBox.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+    }
+
   }
-  if(cab.mantenimiento){
-    return showErr(msg,`${cab.nombre} está en mantenimiento y no puede reservarse.`);
+);
+
+
+/* ================================
+   LOGIN
+================================ */
+
+loginButton.addEventListener(
+  "click",
+  function(){
+
+    const usuario =
+      document.getElementById("usuario")
+      .value
+      .trim();
+
+    const password =
+      document.getElementById("password")
+      .value;
+
+
+    loginError.className =
+      "message";
+
+
+    if(
+      usuario === "cliente" &&
+      password === "12345"
+    ){
+
+      localStorage.setItem(
+        "lagunaUsuario",
+        "cliente"
+      );
+
+
+      loginError.className =
+        "message";
+
+
+      confirmarReserva();
+
+
+    }else{
+
+      loginError.className =
+        "message show error";
+
+      loginError.textContent =
+        "Usuario o contraseña incorrectos.";
+
+    }
+
   }
-  if(huespedes < 1 || huespedes > cab.capacidad){
-    return showErr(msg,`La capacidad máxima de ${cab.nombre} es ${cab.capacidad} huéspedes.`);
-  }
-  const choque = reservas.some(r => r.cabinId===cabinId && reservaActivaOFutura(r) && overlap(entrada, salida, r.entrada, r.salida));
-  if(choque){
-    return showErr(msg,`${cab.nombre} ya tiene una reserva que se superpone con esas fechas.`);
-  }
+);
 
-  const precioTotal = noches(entrada,salida) * cab.precio;
-  const reserva = {
-    id: nextReservaId++, cabinId, visitante, huespedes, entrada, salida,
-    estado:"confirmada", pago:false, precioTotal, pulsera:null, acceso:false, consumos:[]
-  };
-  reservas.push(reserva);
-  ultimaReservaId = reserva.id;
-  document.getElementById("btnPagar").disabled = false;
-  showOk(msg, `Reserva #${reserva.id} creada para ${cab.nombre} (${noches(entrada,salida)} noches, total ${fmt(precioTotal)}). Registrá el pago para confirmarla del todo.`);
-  refreshAll();
-}
 
-function pagarUltimaReserva(){
-  const msg = document.getElementById("msgReserva");
-  const r = reservas.find(r=>r.id===ultimaReservaId);
-  if(!r){ return showErr(msg,"No hay una reserva reciente para pagar."); }
-  if(r.pago){ return showErr(msg,"Esa reserva ya fue pagada."); }
-  r.pago = true;
-  showOk(msg, `Pago de ${fmt(r.precioTotal)} registrado para la reserva #${r.id}. ¡Confirmada!`);
-  document.getElementById("btnPagar").disabled = true;
-  refreshAll();
-}
+/* ================================
+   CONFIRMAR RESERVA
+================================ */
 
-/* ======================= CHECK-IN ======================= */
-function renderSelectCheckin(){
-  const sel = document.getElementById("ciReserva");
-  const disponibles = reservas.filter(r=>r.estado==="confirmada");
-  sel.innerHTML = disponibles.length
-    ? disponibles.map(r=>`<option value="${r.id}">#${r.id} · ${cabanas.find(c=>c.id===r.cabinId).nombre} · ${r.visitante} ${r.pago?"":"(pago pendiente)"}</option>`).join("")
-    : `<option value="">No hay reservas confirmadas</option>`;
-}
+function confirmarReserva(){
 
-function hacerCheckin(){
-  const msg = document.getElementById("msgCheckin");
-  const id = Number(document.getElementById("ciReserva").value);
-  const r = reservas.find(r=>r.id===id);
-  if(!r){ return showErr(msg,"Seleccioná una reserva confirmada válida."); }
-  if(r.estado !== "confirmada"){ return showErr(msg,"El visitante debe tener una reserva confirmada para hacer check-in."); }
-  if(!r.pago){ return showErr(msg,"La reserva tiene el pago pendiente. Registralo antes del check-in."); }
-  r.estado = "checkin";
-  r.pulsera = "PLS-" + String(1000 + r.id);
-  r.acceso = true;
-  showOk(msg, `Check-in realizado. Pulsera ${r.pulsera} asignada y habilitada exclusivamente para ${cabanas.find(c=>c.id===r.cabinId).nombre}.`);
-  refreshAll();
-}
+  if(!reservaPendiente){
 
-/* ======================= CONSUMOS ======================= */
-function renderSelectEnEstadia(selectId){
-  const sel = document.getElementById(selectId);
-  const activas = reservas.filter(r=>r.estado==="checkin");
-  sel.innerHTML = activas.length
-    ? activas.map(r=>`<option value="${r.id}">#${r.id} · ${cabanas.find(c=>c.id===r.cabinId).nombre} · ${r.visitante} · ${r.pulsera}</option>`).join("")
-    : `<option value="">No hay huéspedes en estadía</option>`;
-}
-
-function registrarConsumo(){
-  const msg = document.getElementById("msgConsumo");
-  const id = Number(document.getElementById("coReservaConsumo").value);
-  const r = reservas.find(r=>r.id===id);
-  const desc = document.getElementById("coDesc").value.trim();
-  const monto = Number(document.getElementById("coMonto").value);
-  if(!r || r.estado!=="checkin"){ return showErr(msg,"El visitante debe tener acceso activo (check-in) para registrar consumos."); }
-  if(!desc || monto<=0){ return showErr(msg,"Completá una descripción y un monto válido."); }
-  r.consumos.push({desc, monto});
-  showOk(msg, `Consumo de ${fmt(monto)} (${desc}) cargado a la pulsera ${r.pulsera}.`);
-  document.getElementById("coDesc").value = "";
-  document.getElementById("coMonto").value = 0;
-  refreshAll();
-}
-
-/* ======================= CHECK-OUT ======================= */
-function hacerCheckout(){
-  const msg = document.getElementById("msgCheckout");
-  const id = Number(document.getElementById("coReserva").value);
-  const r = reservas.find(r=>r.id===id);
-  if(!r || r.estado!=="checkin"){ return showErr(msg,"Solo se puede hacer check-out de una estadía con check-in activo."); }
-  r.estado = "checkout";
-  r.acceso = false;
-  const totalConsumos = r.consumos.reduce((a,c)=>a+c.monto,0);
-  const saldo = totalConsumos; // hospedaje ya fue pagado al confirmar
-  showOk(msg, `Check-out realizado. Acceso de la pulsera ${r.pulsera} deshabilitado. Saldo final por consumos: ${fmt(saldo)}.`);
-  refreshAll();
-}
-
-/* ======================= TABLA RESERVAS ======================= */
-function renderTablaReservas(){
-  const tbody = document.querySelector("#tablaReservas tbody");
-  if(reservas.length===0){
-    tbody.innerHTML = `<tr><td colspan="9" class="empty">Todavía no hay reservas registradas.</td></tr>`;
     return;
   }
-  tbody.innerHTML = reservas.map(r=>{
-    const cab = cabanas.find(c=>c.id===r.cabinId);
-    const totalConsumos = r.consumos.reduce((a,c)=>a+c.monto,0);
-    return `<tr>
-      <td>${cab.nombre}</td>
-      <td>${r.visitante}</td>
-      <td>${r.entrada} → ${r.salida}</td>
-      <td>${r.huespedes}</td>
-      <td><span class="badge b-${r.estado==='checkin'?'ocupada':(r.estado==='checkout'?'mantenimiento':'reservada')}">${r.estado}</span></td>
-      <td>${r.pago ? fmt(r.precioTotal) : "pendiente"}</td>
-      <td>${r.pulsera ? `<span class="pill-band"><span class="dot"></span>${r.pulsera}</span>` : "—"}</td>
-      <td>${r.acceso ? "habilitado" : "deshabilitado"}</td>
-      <td>${fmt(totalConsumos)}</td>
-    </tr>`;
-  }).join("");
-}
 
-/* ======================= HELPERS DE MENSAJE ======================= */
-function showOk(el,text){ el.className="msg show ok"; el.textContent=text; }
-function showErr(el,text){ el.className="msg show err"; el.textContent=text; }
 
-/* ======================= TABS ======================= */
-document.querySelectorAll("nav.tabs button").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll("section.panel").forEach(p=>p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("tab-"+btn.dataset.tab).classList.add("active");
-    refreshAll();
+  const codigo =
+    "BC-" +
+    Math.floor(
+      10000 + Math.random() * 90000
+    );
+
+
+  const fecha =
+    new Date(
+      reservaPendiente.fecha + "T00:00:00"
+    );
+
+
+  const fechaFormateada =
+    fecha.toLocaleDateString(
+      "es-AR",
+      {
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+      }
+    );
+
+
+  document.getElementById(
+    "reservaId"
+  ).textContent =
+    codigo;
+
+
+  document.getElementById(
+    "reservaFecha"
+  ).textContent =
+    fechaFormateada;
+
+
+  document.getElementById(
+    "reservaPersonas"
+  ).textContent =
+    reservaPendiente.personas;
+
+
+  document.getElementById(
+    "reservaServicios"
+  ).textContent =
+    reservaPendiente.servicios.length
+    ? reservaPendiente.servicios.join(", ")
+    : "Experiencia general";
+
+
+  confirmation.classList.add("show");
+
+
+  loginBox.classList.remove("show");
+
+
+  reservaForm.style.display =
+    "none";
+
+
+  confirmation.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
   });
-});
 
-/* ======================= REFRESH GENERAL ======================= */
-function refreshAll(){
-  renderCabinGrid();
-  renderSelectCheckin();
-  renderSelectEnEstadia("coReservaConsumo");
-  renderSelectEnEstadia("coReserva");
-  renderTablaReservas();
+
+  localStorage.setItem(
+    "ultimaReservaBeachClub",
+    JSON.stringify({
+
+      codigo:codigo,
+
+      fecha:reservaPendiente.fecha,
+
+      personas:reservaPendiente.personas,
+
+      servicios:reservaPendiente.servicios
+
+    })
+  );
+
+
+  reservaPendiente = null;
+
 }
 
-/* ======================= INIT ======================= */
-(function init(){
-  renderSelectCabanas();
-  const today = new Date();
-  const in3 = new Date(today.getTime() + 3*86400000);
-  document.getElementById("rEntrada").value = today.toISOString().slice(0,10);
-  document.getElementById("rSalida").value = in3.toISOString().slice(0,10);
-  refreshAll();
-})();
+
 </script>
+
 </body>
 </html>
